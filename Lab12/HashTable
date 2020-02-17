@@ -1,0 +1,72 @@
+package Lab12;
+
+import org.w3c.dom.Node;
+
+public class HashTable<K, V> implements HashTableInterface<K, V> {
+	private ChainNode[] table; // hash table
+	private int size = 0; // size of table, i.e. number of entries ((key,value) associations)
+
+	public HashTable() {
+		table = new ChainNode[3];
+	} // end default constructor
+
+	// table operations
+	public boolean tableIsEmpty() {
+		return size == 0;
+	} // end tableIsEmpty
+
+	public int tableLength() {
+		return size;
+	} // end tableLength
+
+	public boolean tableInsert(K key, V value) throws HashException {
+		if (table == null) { // If table is empty.
+			key = key.newItem; // Create new key.
+			int i = hashIndex(key); // Index is the hash index of the key.
+			Node node = new Node(key, value); // New node is created.
+			node.next = table[i]; // The next node is the index of the table.
+			table[i] = node; // The index is the value of the original node.
+		} else {
+			throw new HashException(); // Throw an exception if the table is not null.
+		}
+	}
+
+	public void tableDelete(K searchKey) {
+		int i = hashIndex(key); // Index is the hash index of the key.
+		Node node = table[i]; // The node is the index of the table.
+		while (node != null && node.getKey() != searchKey) { // While the node is not empty and the node cannot get the key.
+			node = node.next; // Move the node.
+		}
+		searchKey = null; // Nullify the search key.
+	}
+
+	public V tableRetrieve(K searchKey) {
+		int i = hashIndex(key); // Index is the hash index of the key.
+		Node node = table[i]; // New node is the index of the table.
+		while (node != null && node.getKey() != searchKey) { // While the node is not empty and the node cannot get the key.
+			node = node.next; // Move the node.
+		}
+		if (node != null) { // If the node is not empty.
+			return node.getValue(); // Return the value of the node.
+		} else {
+			return null; // Else return null
+		}
+	}
+
+	public int hashIndex(K key) {
+		int[] array = new int[size]; // Array, whose value is the size of the key.
+		int result = 0; // Initialize result.
+		int kSize = key.toString().length(); // Size of the key.
+		int index = 0; // Index.
+		while (index < kSize) { // While the index is less than the key size.
+			array[index] = (int) key.toString().charAt(index); // The array of the index is the key at the index of the char hashcode.
+			result = (int) Math.pow(result + array[index] << 5, (kSize - index - 1)); // Result is the result
+			index++; // Increment the index.
+		}
+		return result % tableLength(); // After the result is calculated, the has index is the result mod the table length.
+	}
+
+	public String toString() { // toString for returning the table.
+		return "{" + table + "}";
+	}
+} // end HashTable

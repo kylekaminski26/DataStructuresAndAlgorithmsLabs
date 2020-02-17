@@ -1,0 +1,70 @@
+package Lab12;
+
+import java.util.Scanner;
+
+public class Driver {
+	public static void main(String args[]) {
+		boolean run = true;
+		Scanner sc = new Scanner(System.in);
+		HashTable hash = new HashTable();
+
+		while (run == true) {
+			System.out.println("\n1. Insert a symbol key with an associated value in the table.");
+			System.out.println("2. Delete a symbol from the table.");
+			System.out.println("3. Retrieve and display the value associated with a symbol key in the table.");
+			System.out.println("4. Display the hash index of a symbol key.");
+			System.out.println("5. Exit Program.");
+			System.out.print("Choice: ");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				System.out.print("Enter key to add: ");
+				String keyAdd = sc.next().toUpperCase();
+				System.out.print("Enter value for key: ");
+				int valueAdd = sc.nextInt();
+				if (keyAdd.length() > 6) {
+					System.out.println("Key must be at most 6 chars.");
+				} else {
+					hash.tableInsert(keyAdd, valueAdd);
+				}
+				break;
+			case 2:
+				System.out.print("Enter key to remove: ");
+				String keyRem = sc.next().toUpperCase();
+				if (keyRem.length() > 6) {
+					System.out.println("Key must be at most 6 chars.");
+				} else {
+					hash.tableDelete(keyRem);
+					System.out.println(keyRem + " removed.");
+				}
+				break;
+			case 3:
+				System.out.print("Enter key to display value of: ");
+				String keyDis = sc.next().toUpperCase();
+				if (keyDis.length() > 6) {
+					System.out.println("Key must be at most 6 chars.");
+				} else {
+					System.out.println("{Key: " + keyDis + ", Value: " + hash.tableRetrieve(keyDis) + "}");
+				}
+				break;
+			case 4:
+				System.out.print("Enter symbol key to display hash index of: ");
+				String keyHash = sc.next().toUpperCase();
+				if (keyHash.length() > 6) {
+					System.out.println("Key must be at most6 chars.");
+				} else {
+					System.out.println("{Key: " + keyHash + ", Hash Index: " + hash.tableRetrieve(keyHash) + "}");
+				}
+				break;
+			case 5:
+				run = false;
+				sc.close();
+				break;
+			default:
+				System.out.println("Please enter a valid input.");
+				break;
+			}
+		}
+	}
+}
+

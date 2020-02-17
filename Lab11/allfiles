@@ -1,0 +1,597 @@
+::::::::::::::
+Driver
+::::::::::::::
+package Lab11;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Driver {
+	static boolean run = true;
+	static Scanner sc = new Scanner(System.in);
+
+	public static void main(String args[]) {
+		while (run == true)
+			try {
+				System.out.println("\n1. Insert key in BST.");
+				System.out.println("2. Delete key from BST.");
+				System.out.println("3. Search for key in BST.");
+				System.out.println("4. Display height of BST.");
+				System.out.println("5. Display size of BST.");
+				System.out.println("6. Display content of BST in inorder.");
+				System.out.println("7. Display content of BST in preorder.");
+				System.out.println("8. Display content of BST in postorder.");
+				System.out.println("9. Build copy of the tree, and test it.");
+				System.out.println("10. Exit Program.");
+				System.out.print("Enter menu selection: ");
+				int choice = sc.nextInt();
+				switch (choice) {
+				case 1:
+					// Insert key in BST.
+					MyBinarySearchTree.insert();
+					break;
+				case 2:
+					// Delete key from BST.
+					MyBinarySearchTree.delete();
+					break;
+				case 3:
+					// Search for key in BST.
+					MyBinarySearchTree.retrieve();
+					break;
+				case 4:
+					// Display height of BST.
+					MyBinarySearchTreePlus.getHeight();
+					break;
+				case 5:
+					// Display size of BST.
+					MyBinarySearchTreePlus.getSize();
+					break;
+				case 6:
+					// Display content of BST in inorder.
+					MyBinarySearchTreePlus.toStringInorder();
+					break;
+				case 7:
+					// Display content of BST in preorder.
+					MyBinarySearchTreePlus.toStringPreorder();
+					break;
+				case 8:
+					// Display content of BST in postorder.
+					MyBinarySearchTreePlus.toStringPostorder();
+					break;
+				case 9:
+					// Build copy of the tree, and test it.
+					MyBinarySearchTreePlus.getCopyOfTree();
+					break;
+				case 10:
+					// Exit Program.
+					run = false;
+					break;
+				default:
+					// Default.
+					System.out.println("Please enter a valid input.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Please enter a valid input.");
+			}
+	}
+}
+
+::::::::::::::
+MyBinarySearchTree
+::::::::::::::
+package Lab11;
+
+public class MyBinarySearchTree<T extends KeyedItem<KT>, KT extends Comparable<? super KT>> extends BinaryTreeBasis<T> {
+	// inherits isEmpty(), makeEmpty(), getRootItem(), and
+	// the use of the constructors from BinaryTreeBasis
+
+	public MyBinarySearchTree() {
+	} // end default constructor
+
+	public MyBinarySearchTree(T rootItem) {
+		super(rootItem);
+	} // end constructor
+
+	public void setRootItem(T newItem) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
+	} // end setRootItem
+
+	public void insert(T newItem) {
+		root = insertItem(root, newItem);
+	} // end insert
+
+	public T retrieve(T searchKey) {
+		if (searchKey.equals(searchKey)) {
+			return searchKey;
+		} else {
+			return searchKey;
+		}
+	} // end retrieve
+
+	public void delete(KT searchKey) throws TreeException {
+		root = deleteItem(root, searchKey);
+	} // end delete
+
+	public void delete(T item) throws TreeException {
+		root = deleteItem(root, item.getKey());
+	} // end delete
+
+	protected TreeNode<T> insertItem(TreeNode<T> tNode, T newItem) {
+		TreeNode<T> newSubtree;
+		if (tNode == null) {
+			// position of insertion found; insert after leaf
+			// create a new node
+			tNode = new TreeNode<T>(newItem, null, null);
+			return tNode;
+		} // end if
+		T nodeItem = tNode.getItem();
+
+		// search for the insertion position
+
+		if (newItem.getKey().compareTo(nodeItem.getKey()) < 0) {
+			// search the left subtree
+			newSubtree = insertItem(tNode.getLeftChild(), newItem);
+			tNode.setLeftChild(newSubtree);
+			return tNode;
+		} else { // search the right subtree
+			newSubtree = insertItem(tNode.getRightChild(), newItem);
+			tNode.setRightChild(newSubtree);
+			return tNode;
+		} // end if
+	} // end insertItem
+
+	protected TreeNode<T> deleteItem(TreeNode<T> tNode, KT searchKey) {
+		// Calls: deleteNode.
+		TreeNode<T> newSubtree;
+		if (tNode == null) {
+			throw new TreeException("TreeException: Item not found");
+		} else {
+			T nodeItem = tNode.getItem();
+			if (searchKey.compareTo(nodeItem.getKey()) == 0) {
+				// item is in the root of some subtree
+				tNode = deleteNode(tNode); // delete the item
+			}
+			// else search for the item
+			else if (searchKey.compareTo(nodeItem.getKey()) < 0) {
+				// search the left subtree
+				newSubtree = deleteItem(tNode.getLeftChild(), searchKey);
+				tNode.setLeftChild(newSubtree);
+			} else { // search the right subtree
+				newSubtree = deleteItem(tNode.getRightChild(), searchKey);
+				tNode.setRightChild(newSubtree);
+			} // end if
+		} // end if
+		return tNode;
+	} // end deleteItem
+
+	protected TreeNode<T> deleteNode(TreeNode<T> tNode) {
+		// Algorithm note: There are four cases to consider:
+		// 1. The tNode is a leaf.
+		// 2. The tNode has no left child.
+		// 3. The tNode has no right child.
+		// 4. The tNode has two children.
+		// Calls: findLeftmost and deleteLeftmost
+		T replacementItem;
+
+		// test for a leaf
+		if ((tNode.getLeftChild() == null) && (tNode.getRightChild() == null)) {
+			return null;
+		} // end if leaf
+
+		// test for no left child
+		else if (tNode.getLeftChild() == null) {
+			return tNode.getRightChild();
+		} // end if no left child
+
+		// test for no right child
+		else if (tNode.getRightChild() == null) {
+			return tNode.getLeftChild();
+		} // end if no right child
+
+		// there are two children:
+		// retrieve and delete the inorder successor
+		else {
+			replacementItem = findLeftmost(tNode.getRightChild());
+			tNode.setItem(replacementItem);
+			tNode.setRightChild(deleteLeftmost(tNode.getRightChild()));
+			return tNode;
+		} // end if
+	} // end deleteNode
+
+	protected T findLeftmost(TreeNode<T> tNode) {
+		TreeNode temp = root;
+		while (root != null) {
+			tNode = root.left;
+		}
+		return tNode = temp;
+	} // end findLeftmost
+
+	protected TreeNode<T> deleteLeftmost(TreeNode<T> tNode) {
+		while (root != null) {
+			TreeNode temp = root;
+			if (root != null) {
+				tNode = root.left;
+			}
+			root.left = null;
+		}
+		return root.left;
+	}
+} // end MyBinarySearchTree
+::::::::::::::
+MyBinarySearchTreePlus
+::::::::::::::
+package Lab11;
+
+public class MyBinarySearchTreePlus<T extends KeyedItem<KT>, KT extends Comparable<? super KT>>
+		extends MyBinarySearchTree<T, KT> implements BSTPInterface<T, KT> {
+
+	@Override
+	public int getHeight(TreeNode tNode) {
+		if (tNode == null) {
+			return 0;
+		} else {
+			int left = getHeight(tNode);
+			int right = getHeight(tNode);
+			if (left > right) {
+				return (left + 1);
+			} else {
+				return (right + 1);
+			}
+		}
+	}
+
+	@Override
+	public int getSize(TreeNode tNode) {
+		if (tNode == null)
+			return 0;
+		else
+			return (getSize(tNode.left) + 1 + getSize(tNode.right));
+	}
+
+	@Override
+	public String toStringInorder(TreeNode<T> root) {
+		if (root != null) {
+			toStringInorder(root.left); // Gets left child.
+			System.out.println(root); // Gets root.
+			toStringInorder(root.right); // Gets right child.
+		}
+	}
+
+	@Override
+	public String toStringPreorder(TreeNode<T> root) {
+		if (root != null) {
+			temp = root; // Gets root.
+			toStringInorder(root.left); // Gets left child.
+			toStringInorder(root.right); // Gets right child.
+			root = temp;
+		}
+	}
+
+	@Override
+	public String toStringPostorder() {
+		if (root != null) {
+			temp = root; // Gets root.
+			toStringInorder(root.left); // Gets left child.
+			toStringInorder(root.right); // Gets right child.
+			root = temp; // Gets root.
+		}
+	}
+
+	@Override
+	public MyBinarySearchTreePlus<T, KT> getCopyOfTree(TreeNode tNode) {
+		temp.left = root.left;
+		temp.right = root.right;
+		temp = root;
+		return temp.left + temp + temp.right;
+	}
+}
+::::::::::::::
+BSTPInterface
+::::::::::::::
+package Lab11;
+
+public interface BSTPInterface<T extends KeyedItem<KT>, KT extends Comparable<? super KT>> {
+
+	public int getHeight();
+	// returns the height of the tree (recursive implementation)
+
+	public int getSize();
+	// returns the number of nodes in the tree(recursive implementation)
+
+	public String toStringInorder();
+	// returns String representation of Tree with items in Inorder
+	// (recursive implementation)
+
+	public String toStringPreorder();
+	// returns String representation of Tree with items in Preorder
+	// (recursive implementation)
+
+	public String toStringPostorder();
+	// returns String representation of Tree with items in Postorder
+	// (recursive implementation)
+
+	public MyBinarySearchTreePlus<T, KT> getCopyOfTree();
+	// returns a new tree containing a copy of the original tree
+	// with the same structure. Note: the new tree should not have
+	// any shared nodes with the original.(recursive implementation)
+
+}// end BSTPInterface
+::::::::::::::
+BinarySearchTree
+::::::::::::::
+package Lab11;
+
+public class BinarySearchTree<T extends KeyedItem<KT>, KT extends Comparable<? super KT>> extends BinaryTreeBasis<T> {
+	// inherits isEmpty(), makeEmpty(), getRootItem(), and
+	// the use of the constructors from BinaryTreeBasis
+
+	public BinarySearchTree() {
+	} // end default constructor
+
+	public BinarySearchTree(T rootItem) {
+		super(rootItem);
+	} // end constructor
+
+	public void setRootItem(T newItem) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
+	} // end setRootItem
+
+	public void insert(T newItem) {
+		root = insertItem(root, newItem);
+	} // end insert
+
+	public T retrieve(KT searchKey) {
+		return retrieveItem(root, searchKey);
+	} // end retrieve
+
+	public void delete(KT searchKey) throws TreeException {
+		root = deleteItem(root, searchKey);
+	} // end delete
+
+	public void delete(T item) throws TreeException {
+		root = deleteItem(root, item.getKey());
+	} // end delete
+
+	protected TreeNode<T> insertItem(TreeNode<T> tNode, T newItem) {
+		TreeNode<T> newSubtree;
+		if (tNode == null) {
+			// position of insertion found; insert after leaf
+			// create a new node
+			tNode = new TreeNode<T>(newItem, null, null);
+			return tNode;
+		} // end if
+		T nodeItem = tNode.getItem();
+
+		// search for the insertion position
+
+		if (newItem.getKey().compareTo(nodeItem.getKey()) < 0) {
+			// search the left subtree
+			newSubtree = insertItem(tNode.getLeftChild(), newItem);
+			tNode.setLeftChild(newSubtree);
+			return tNode;
+		} else { // search the right subtree
+			newSubtree = insertItem(tNode.getRightChild(), newItem);
+			tNode.setRightChild(newSubtree);
+			return tNode;
+		} // end if
+	} // end insertItem
+
+	protected T retrieveItem(TreeNode<T> tNode, KT searchKey) {
+		T treeItem;
+		if (tNode == null) {
+			treeItem = null;
+		} else {
+			T nodeItem = tNode.getItem();
+			if (searchKey.compareTo(nodeItem.getKey()) == 0) {
+				// item is in the root of some subtree
+				treeItem = tNode.getItem();
+			} else if (searchKey.compareTo(nodeItem.getKey()) < 0) {
+				// search the left subtree
+				treeItem = retrieveItem(tNode.getLeftChild(), searchKey);
+			} else { // search the right subtree
+				treeItem = retrieveItem(tNode.getRightChild(), searchKey);
+			} // end if
+		} // end if
+		return treeItem;
+	} // end retrieveItem
+
+	protected TreeNode<T> deleteItem(TreeNode<T> tNode, KT searchKey) {
+		// Calls: deleteNode.
+		TreeNode<T> newSubtree;
+		if (tNode == null) {
+			throw new TreeException("TreeException: Item not found");
+		} else {
+			T nodeItem = tNode.getItem();
+			if (searchKey.compareTo(nodeItem.getKey()) == 0) {
+				// item is in the root of some subtree
+				tNode = deleteNode(tNode); // delete the item
+			}
+			// else search for the item
+			else if (searchKey.compareTo(nodeItem.getKey()) < 0) {
+				// search the left subtree
+				newSubtree = deleteItem(tNode.getLeftChild(), searchKey);
+				tNode.setLeftChild(newSubtree);
+			} else { // search the right subtree
+				newSubtree = deleteItem(tNode.getRightChild(), searchKey);
+				tNode.setRightChild(newSubtree);
+			} // end if
+		} // end if
+		return tNode;
+	} // end deleteItem
+
+	protected TreeNode<T> deleteNode(TreeNode<T> tNode) {
+		// Algorithm note: There are four cases to consider:
+		// 1. The tNode is a leaf.
+		// 2. The tNode has no left child.
+		// 3. The tNode has no right child.
+		// 4. The tNode has two children.
+		// Calls: findLeftmost and deleteLeftmost
+		T replacementItem;
+
+		// test for a leaf
+		if ((tNode.getLeftChild() == null) && (tNode.getRightChild() == null)) {
+			return null;
+		} // end if leaf
+
+		// test for no left child
+		else if (tNode.getLeftChild() == null) {
+			return tNode.getRightChild();
+		} // end if no left child
+
+		// test for no right child
+		else if (tNode.getRightChild() == null) {
+			return tNode.getLeftChild();
+		} // end if no right child
+
+		// there are two children:
+		// retrieve and delete the inorder successor
+		else {
+			replacementItem = findLeftmost(tNode.getRightChild());
+			tNode.setItem(replacementItem);
+			tNode.setRightChild(deleteLeftmost(tNode.getRightChild()));
+			return tNode;
+		} // end if
+	} // end deleteNode
+
+	protected T findLeftmost(TreeNode<T> tNode) {
+		if (tNode.getLeftChild() == null) {
+			return tNode.getItem();
+		} else {
+			return findLeftmost(tNode.getLeftChild());
+		} // end if
+	} // end findLeftmost
+
+	protected TreeNode<T> deleteLeftmost(TreeNode<T> tNode) {
+		if (tNode.getLeftChild() == null) {
+			return tNode.getRightChild();
+		} else {
+			tNode.setLeftChild(deleteLeftmost(tNode.getLeftChild()));
+			return tNode;
+		} // end if
+	} // end deleteLeftmost
+
+} // end BinarySearchTree
+::::::::::::::
+BinaryTreeBasis
+::::::::::::::
+package Lab11;
+
+public abstract class BinaryTreeBasis<T> {
+	protected TreeNode<T> root;
+
+	public BinaryTreeBasis() {
+		root = null;
+	} // end default constructor
+
+	public BinaryTreeBasis(T rootItem) {
+		root = new TreeNode<T>(rootItem, null, null);
+	} // end constructor
+
+	public boolean isEmpty() {
+		// Returns true if the tree is empty, else returns false.
+		return root == null;
+	} // end isEmpty
+
+	public void makeEmpty() {
+		// Removes all nodes from the tree.
+		root = null;
+	} // end makeEmpty
+
+	public T getRootItem() throws TreeException {
+		// Returns the item in the tree's root.
+		if (root == null) {
+			throw new TreeException("TreeException: Empty tree");
+		} else {
+			return root.getItem();
+		} // end if
+	} // end getRootItem
+
+	public abstract void setRootItem(T newItem);
+	// Throws UnsupportedOperationException if operation
+	// is not supported.
+
+} // end BinaryTreeBasis
+::::::::::::::
+KeyedItem
+::::::::::::::
+package Lab11;
+
+public abstract class KeyedItem<KT extends Comparable<? super KT>> {
+	private KT searchKey;
+
+	public KeyedItem(KT key) {
+		searchKey = key;
+	} // end constructor
+
+	public KT getKey() {
+		return searchKey;
+	} // end getKey
+} // end KeyedItem
+::::::::::::::
+TreeException
+::::::::::::::
+package Lab11;
+
+public class TreeException extends RuntimeException {
+	public TreeException(String s) {
+		super(s);
+	} // end constructor
+} // end TreeException
+::::::::::::::
+TreeNode
+::::::::::::::
+package Lab11;
+
+class TreeNode<T> {
+	private T item;
+	private TreeNode<T> leftChild;
+	private TreeNode<T> rightChild;
+
+	public TreeNode(T newItem) {
+		// Initializes tree node with item and no children.
+		item = newItem;
+		leftChild = null;
+		rightChild = null;
+	} // end constructor
+
+	public TreeNode(T newItem, TreeNode<T> left, TreeNode<T> right) {
+		// Initializes tree node with item and
+		// the left and right children references.
+		item = newItem;
+		leftChild = left;
+		rightChild = right;
+	} // end constructor
+
+	public T getItem() {
+		return item;
+	}
+
+	public void setItem(TreeNode<T> replacementItem) {
+		this.item = replacementItem;
+	}
+
+	public TreeNode<T> getLeftChild() {
+		return leftChild;
+	}
+
+	public void setLeftChild(TreeNode<T> leftChild) {
+		this.leftChild = leftChild;
+	}
+
+	public TreeNode<T> getRightChild() {
+		return rightChild;
+	}
+
+	public void setRightChild(TreeNode<T> rightChild) {
+		this.rightChild = rightChild;
+	}
+
+} // end TreeNode
+
+::::::::::::::
+Conclusions
+::::::::::::::
+During this lab, I learned how to properly use and code the BST.
+I learned how to code for inserting, searching, and deleting from a BST.
+Knowing how to use a BST is a huge advantage to me because it is an easy way to organize data.

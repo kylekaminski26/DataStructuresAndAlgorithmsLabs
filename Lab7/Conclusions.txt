@@ -1,0 +1,3 @@
+While working on this lab, I learned what BigInteger class is.
+I also learned how to program the Pascal's Triangle, as well as the Binomial Coefficient.
+I cannot wait to use these methods that I have written in future programs for an effective programming style.

@@ -1,0 +1,4 @@
+During the creation of this lab, I learned how to make a Recursive Quick Sort, as well as an Iterative Merge Sort.
+The Recursive Quick Sort calls itself over and over to sort the array.
+The Iterative Merge Sort uses iteration to sort its array.
+These methods gets the job done and are useful methods for sorting arrays.

@@ -1,0 +1,92 @@
+package Lab10;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class IterativeMergeSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt]; // Collects user data into a list of integers.
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) { // For when there are still more integers to be inputed.
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+					// Asks user to input all of their integers.
+				}
+				System.out.println("\nInput Data: ");
+				System.out.println(Arrays.toString(list)); // Prints the list of user data.
+				System.out.println();
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		IMerge(list); // Sends user data to the Iterative Merge Sort method.
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list)); // Prints the list of newly sorted data.
+		System.out.println("\nNumber of comparisons: " + comp);
+	}
+
+	public static void IMerge(int sorted[]) {
+		if (sorted.length > 1) {
+			int middle = sorted.length / 2; // Middle is half the length of the original array.
+			int[] left = new int[middle]; // Splits in half, from the left to the middle.
+			for (int i = 0; i < middle; i++) { // All elements less than the middle are put in the left array.
+				left[i] = sorted[i];
+				comp++;
+			}
+			int[] right = new int[sorted.length - middle]; // Splits in half, from the right to the middle.
+			for (int i = middle; i < sorted.length; i++) { // All elements more than the middle are put in the right array.
+				right[i - middle] = sorted[i];
+				comp++;
+			}
+			int i = 0; // Left of the middle.
+			int j = 0; // Right of the middle.
+			int k = 0; // Will be the value of an element to be used in sorting.
+			while (i < left.length && j < right.length) { // Iterative part of the merge sort.
+				if (left[i] < right[j]) {
+					sorted[k] = left[i]; // Add elements to the left array.
+					i++;
+				} else {
+					sorted[k] = right[j]; // Add elements to the right array.
+					j++;
+				}
+				k++;
+			}
+			while (i < left.length) { // Collect remaining elements in the left array.
+				sorted[k] = left[i]; // Place elements in the sorted array.
+				i++;
+				k++;
+				comp++; // Count comparisons.
+			}
+			while (j < right.length) { // Collect remaining elements in the right array.
+				sorted[k] = right[j]; // Place elements in the sorted array.
+				j++;
+				k++;
+				comp++; // Count comparisons.
+			}
+		} else {
+			return; // Do nothing if the array is empty.
+		}
+	}
+}
+

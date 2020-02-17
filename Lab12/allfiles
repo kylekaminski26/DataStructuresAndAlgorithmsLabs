@@ -1,0 +1,198 @@
+::::::::::::::
+Driver
+::::::::::::::
+package Lab12;
+
+import java.util.Scanner;
+
+public class Driver {
+	public static void main(String args[]) {
+		boolean run = true;
+		Scanner sc = new Scanner(System.in);
+		HashTable hash = new HashTable();
+
+		while (run == true) {
+			System.out.println("\n1. Insert a symbol key with an associated value in the table.");
+			System.out.println("2. Delete a symbol from the table.");
+			System.out.println("3. Retrieve and display the value associated with a symbol key in the table.");
+			System.out.println("4. Display the hash index of a symbol key.");
+			System.out.println("5. Exit Program.");
+			System.out.print("Choice: ");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				System.out.print("Enter key to add: ");
+				String keyAdd = sc.next().toUpperCase();
+				System.out.print("Enter value for key: ");
+				int valueAdd = sc.nextInt();
+				if (keyAdd.length() > 6) {
+					System.out.println("Key must be at most 6 chars.");
+				} else {
+					hash.tableInsert(keyAdd, valueAdd);
+				}
+				break;
+			case 2:
+				System.out.print("Enter key to remove: ");
+				String keyRem = sc.next().toUpperCase();
+				if (keyRem.length() > 6) {
+					System.out.println("Key must be at most 6 chars.");
+				} else {
+					hash.tableDelete(keyRem);
+					System.out.println(keyRem + " removed.");
+				}
+				break;
+			case 3:
+				System.out.print("Enter key to display value of: ");
+				String keyDis = sc.next().toUpperCase();
+				if (keyDis.length() > 6) {
+					System.out.println("Key must be at most 6 chars.");
+				} else {
+					System.out.println("{Key: " + keyDis + ", Value: " + hash.tableRetrieve(keyDis) + "}");
+				}
+				break;
+			case 4:
+				System.out.print("Enter symbol key to display hash index of: ");
+				String keyHash = sc.next().toUpperCase();
+				if (keyHash.length() > 6) {
+					System.out.println("Key must be at most6 chars.");
+				} else {
+					System.out.println("{Key: " + keyHash + ", Hash Index: " + hash.tableRetrieve(keyHash) + "}");
+				}
+				break;
+			case 5:
+				run = false;
+				sc.close();
+				break;
+			default:
+				System.out.println("Please enter a valid input.");
+				break;
+			}
+		}
+	}
+}
+
+::::::::::::::
+HashTable
+::::::::::::::
+package Lab12;
+
+import org.w3c.dom.Node;
+
+public class HashTable<K, V> implements HashTableInterface<K, V> {
+	private ChainNode[] table; // hash table
+	private int size = 0; // size of table, i.e. number of entries ((key,value) associations)
+
+	public HashTable() {
+		table = new ChainNode[3];
+	} // end default constructor
+
+	// table operations
+	public boolean tableIsEmpty() {
+		return size == 0;
+	} // end tableIsEmpty
+
+	public int tableLength() {
+		return size;
+	} // end tableLength
+
+	public boolean tableInsert(K key, V value) throws HashException {
+		if (table == null) { // If table is empty.
+			key = key.newItem; // Create new key.
+			int i = hashIndex(key); // Index is the hash index of the key.
+			Node node = new Node(key, value); // New node is created.
+			node.next = table[i]; // The next node is the index of the table.
+			table[i] = node; // The index is the value of the original node.
+		} else {
+			throw new HashException(); // Throw an exception if the table is not null.
+		}
+	}
+
+	public void tableDelete(K searchKey) {
+		int i = hashIndex(key); // Index is the hash index of the key.
+		Node node = table[i]; // The node is the index of the table.
+		while (node != null && node.getKey() != searchKey) { // While the node is not empty and the node cannot get the key.
+			node = node.next; // Move the node.
+		}
+		searchKey = null; // Nullify the search key.
+	}
+
+	public V tableRetrieve(K searchKey) {
+		int i = hashIndex(key); // Index is the hash index of the key.
+		Node node = table[i]; // New node is the index of the table.
+		while (node != null && node.getKey() != searchKey) { // While the node is not empty and the node cannot get the key.
+			node = node.next; // Move the node.
+		}
+		if (node != null) { // If the node is not empty.
+			return node.getValue(); // Return the value of the node.
+		} else {
+			return null; // Else return null
+		}
+	}
+
+	public int hashIndex(K key) {
+		int[] array = new int[size]; // Array, whose value is the size of the key.
+		int result = 0; // Initialize result.
+		int kSize = key.toString().length(); // Size of the key.
+		int index = 0; // Index.
+		while (index < kSize) { // While the index is less than the key size.
+			array[index] = (int) key.toString().charAt(index); // The array of the index is the key at the index of the char hashcode.
+			result = (int) Math.pow(result + array[index] << 5, (kSize - index - 1)); // Result is the result
+			index++; // Increment the index.
+		}
+		return result % tableLength(); // After the result is calculated, the has index is the result mod the table length.
+	}
+
+	public String toString() { // toString for returning the table.
+		return "{" + table + "}";
+	}
+} // end HashTable
+::::::::::::::
+HashException
+::::::::::::::
+package Lab12;
+
+public class HashException extends RuntimeException {
+	public HashException(String s) {
+		super(s);
+	} // end constructor
+} // end HashException
+
+::::::::::::::
+ChainNode
+::::::::::::::
+package Lab12;
+
+class ChainNode<K, V> {
+	private K key;
+	private V value;
+	private ChainNode<K, V> next;
+
+	public ChainNode(K newKey, V newValue, ChainNode<K, V> nextNode) {
+		key = newKey;
+		value = newValue;
+		next = nextNode;
+	} // end constructor
+
+	public V getValue() {
+		return value;
+	} // end getValue
+
+	public K getKey() {
+		return key;
+	} // end getKey
+
+	public ChainNode<K, V> getNext() {
+		return next;
+	} // end getNext
+
+	public void setNext(ChainNode<K, V> next) {
+		this.next = next;
+	} // end setNext
+
+} // end ChainNode
+::::::::::::::
+Conclusions
+::::::::::::::
+During this lab, I learned how to use a symbol table for hashing keys and values.
+I also learned how Horner's rule worked and how i can implement it into my programs.
+Overall, the symbol table is a unique data structure to write a program for and I had fun writing a program for it.

@@ -1,0 +1,627 @@
+::::::::::::::
+BubbleSort
+::::::::::::::
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class BubbleSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		Bubble(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void Bubble(int sorted[]) {
+		int length = sorted.length;
+		for (int i = 0; i < length - 1; i++) { // For when i is less than length.
+			for (int j = 0; j < length - i - 1; j++) { // For when j is less than i - 1.
+				if (sorted[j] > sorted[j + 1]) { // If list is not fully sorted yet.
+					int temp = sorted[j];
+					sorted[j] = sorted[j + 1];
+					sorted[j + 1] = temp;
+					swap++; // Number of swaps. (n(n-1))/2
+				}
+				comp++; // Number of comparisons. (n(n-1))/2
+			}
+		}
+	}
+	// Best case: elements are already in order.
+	// Worst case: elements are in decreasing order (highest to lowest).
+}
+::::::::::::::
+ImprovedBubbleSort
+::::::::::::::
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ImprovedBubbleSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		ImprovedBubble(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void ImprovedBubble(int sorted[]) {
+		int last = sorted.length - 1;
+		for (int i = 1; i < sorted.length; i++) { // For when i is less than the size of array.
+			int current = -1;
+			for (int j = 0; j < last; j++) { // For when j is less than the last integer.
+				if (sorted[j] > sorted[j + 1]) {
+					int temp = sorted[j];
+					sorted[j] = sorted[j + 1];
+					sorted[j + 1] = temp;
+					current = j;
+				}
+				swap++; // Number of swaps. (n(n-1))/2
+			}
+			last = current;
+			comp++; // Number of comparisons. n-1
+		}
+	}
+	// Best case: elements are already in order (only 1 pass)
+	// Worst case: elements are in decreasing order (highest to lowest, n-1 passes).
+}
+::::::::::::::
+SelectionSort
+::::::::::::::
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class SelectionSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		Selection(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void Selection(int sorted[]) {
+		int length = sorted.length;
+		for (int i = 0; i < length - 1; i++) { // For when i is less than the length of the array - 1.
+			int minEle = i;
+			for (int j = i + 1; j < length; j++) {
+				if (sorted[j] < sorted[minEle]) {
+					minEle = j;
+				}
+				comp++; // Number of comparisons. (n(n-1))/2
+			}
+			int temp = sorted[minEle];
+			sorted[minEle] = sorted[i]; // Swaps minimum element with first element.
+			sorted[i] = temp;
+			swap++; // Number of swaps. n-1
+		}
+	}
+	// Best case: O(n^2).
+	// Worst case: O(n^2).
+}
+::::::::::::::
+ImprovedSelectionSort
+::::::::::::::
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ImprovedSelectionSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		ImpSelection(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void ImpSelection(int sorted[]) {
+		int length = sorted.length;
+		for (int i = 0; i < length - 1; i++) {
+			comp++; // Number of comparisons. n-1
+			int minI = i;
+			for (int k = i + 1; k < length; k++) {
+				if (sorted[k] < sorted[minI]) {
+					minI = k;
+				}
+			}
+			swap++; // Number of swaps. n-1
+			if (i != minI) { // If the index is not the minimum index.
+				int temp = sorted[i];
+				sorted[i] = sorted[minI];
+				sorted[minI] = temp;
+			}
+		}
+	}
+	// Best case: O(n^2).
+	// Worst case: O(n^2).
+}
+::::::::::::::
+InsertionSort
+::::::::::::::
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class InsertionSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		Insertion(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void Insertion(int sorted[]) {
+		int length = sorted.length;
+		for (int i = 1; i < length; ++i) { // Grab.
+			comp++; // Number of comparisons. n-1
+			int k = sorted[i];
+			int j = i - 1;
+			while (j >= 0 && sorted[j] > k) { // Sequential Search.
+				sorted[j + 1] = sorted[j]; // Shift.
+				j = j - 1; // Drop.
+			}
+			sorted[j + 1] = k; // Drop.
+		}
+	}
+	// Best case: n.
+	// Worst case: n^2.
+}
+::::::::::::::
+ImprovedInsertionSort
+::::::::::::::
+// ***Extra Credit.
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ImprovedInsertionSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		ImpInsertion(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void ImpInsertion(int sorted[]) {
+		int length = sorted.length;
+		for (int i = 1; i < length; ++i) {
+			comp++; // Number of comparisons. n-1
+			int k = sorted[i]; // Grab.
+			int j = Math.abs(Arrays.binarySearch(sorted, 0, i, k) + 1); // Binary Search.
+			System.arraycopy(sorted, j, sorted, j + 1, i - j); // Shift.
+			sorted[j] = k; // Drop.
+		}
+	}
+	// Best case: n.
+	// Worst case: n^2.
+}
+// End Extra Credit.
+::::::::::::::
+SampleRuns.txt
+::::::::::::::
+*****BubbleSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 10
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 10
+
+*****ImprovedBubbleSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 4
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 10
+
+*****SelectionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 4
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 4
+
+*****ImprovedSelectionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 4
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 4
+
+*****InsertionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+*****ImprovedInsertionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+::::::::::::::
+Conclusions.txt
+::::::::::::::
+While working on this lab, I learned how the different sorting algorithms work.
+I also learned how these sorting algorithms can also be improved for more efficient sorting.
+I will learn to use these sorting algorithms in my future programs.

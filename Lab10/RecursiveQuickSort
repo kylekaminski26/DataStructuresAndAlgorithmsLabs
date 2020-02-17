@@ -1,0 +1,73 @@
+package Lab10;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class RecursiveQuickSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+			list = new int[numInt]; // Collects user data into a list of integers.
+			System.out.println();
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) { // For when there are still more integers to be inputed.
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+					// Asks user to input all of their integers.
+				}
+				System.out.println("\nInput Data: ");
+				System.out.println(Arrays.toString(list) + "\n"); // Prints the list of user data.
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+		RQuickSort(list, 0, list.length - 1); // Sends user data to the Recursive Quick Sort method.
+		System.out.println("Sorted Data: \n" + Arrays.toString(list)); // Prints the list of newly sorted data.
+		System.out.println("\nNumber of comparisons: " + comp);
+	}
+
+	public static void RQuickSort(int[] list, int start, int end) {
+		int i = RQuickSortPartition(list, start, end); // Calls the partition method until the index is the left part of the array.
+		if (start < i - 1) { // Recurse until the index is less than 0.
+			RQuickSort(list, start, i - 1); // Recursively calls this method until the index is the same as the right half of the array.
+		}
+		if (end > i) { // If the end of the array is less than the index.
+			RQuickSort(list, i, end); // Recursively calls this method until the index is the same as the left half of the array.
+		}
+	}
+
+	public static int RQuickSortPartition(int[] list, int left, int right) {
+		int p = list[left]; // The first element in the left array is the pivot.
+		while (left <= right) { // While the left is less than or equal to the right of the array.
+			while (list[left] < p) { // While the left of the array is less than the pivot.
+				left++; // Increment the left of the array (moves toward the middle).
+				comp++;
+			}
+			while (list[right] > p) { // While the right of the array is more than the pivot.
+				right--; // Decrement the right of the array (moves towards the middle).
+				comp++;
+			}
+			if (left <= right) { // If the left is less than or equal to the right.
+				int temp = list[left]; // Make the temp variable the same as the left of the array.
+				list[left] = list[right]; // Makes the left array the same as the right.
+				list[right] = temp; // Puts the right array into temp.
+				left++; // Increment the left value (moves towards middle).
+				right--; // Decrement the right value (moves towards middle).
+			}
+		}
+		return left; // Returns the whole sorted array, which was stored in the left variable.
+	}
+}

@@ -1,0 +1,191 @@
+package Lab8;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.lang.IndexOutOfBoundsException;
+
+public class ListRA implements ListInterface {
+	private static final int MAX_LIST = 3;
+	protected Object[] items; // an array of list items
+	protected int numItems; // number of items in list
+
+	public ListRA() {
+		items = new Object[MAX_LIST];
+		numItems = 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return (numItems == 0);
+	}
+
+	@Override
+	public int size() {
+		return numItems;
+	}
+
+	@Override
+	public void add(int index, Object item) throws IndexOutOfBoundsException {
+		if (index >= 0 && index <= numItems) {
+
+			for (int pos = numItems - 1; pos >= index; pos--) {
+				items[pos + 1] = items[pos];
+			}
+			items[index] = item;
+			numItems++;
+		} else {
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on add");
+		}
+	}
+
+	@Override
+	public Object get(int index) throws IndexOutOfBoundsException {
+		if (index >= 0 && index < numItems) {
+			return items[index];
+		} else {
+			// index out of range
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on get");
+		}
+	}
+
+	@Override
+	public void remove(int index) throws IndexOutOfBoundsException {
+		if (index >= 0 && index < numItems) {
+
+			for (int pos = index + 1; pos < numItems; pos++) {
+				items[pos - 1] = items[pos];
+			}
+			numItems--;
+		} else {
+
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on remove");
+		}
+	}
+
+	@Override
+	public void removeAll() {
+		items = new Object[MAX_LIST];
+		numItems = 0;
+	}
+
+	public static void main(String[] args) {
+
+		ArrayList<String> list = new ArrayList<String>();
+		Scanner sc = new Scanner(System.in);
+		boolean run = true;
+
+		while (run == true) {
+			try {
+				System.out.println("");
+				System.out.println("**********");
+				System.out.println("1. Insert item to list.");
+				System.out.println("2. Remove item from list.");
+				System.out.println("3. Get item from list.");
+				System.out.println("4. Search for a specified item in the list.");
+				System.out.println("5. Clear list.");
+				System.out.println("6. Print size and content of list.");
+				System.out.println("7. Exit Program.");
+				System.out.print("Make a menu selection now: ");
+
+				int choice = sc.nextInt();
+
+				switch (choice) {
+				case 1:
+					System.out.println("You are now inserting a new item to the list.");
+					System.out.print("Enter item: ");
+					String item = sc.next();
+
+					System.out.print("Enter the position to insert the item in: ");
+					int index1 = sc.nextInt();
+
+					if (index1 > list.size()) {
+						System.out.println("Position specified is out of range.");
+						System.out.println("Item not added.");
+						break;
+					}
+
+					list.add(index1, item);
+
+					System.out.println("Item " + item + " inserted in position " + index1 + " in the list.");
+					break;
+				case 2:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.print("Enter position to remove item from: ");
+					int index2 = sc.nextInt();
+
+					if (list.size() <= index2) {
+						list.remove(index2);
+						System.out.println("Item at index " + index2 + " has been removed.");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 3:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter position to retrieve item from: ");
+					int index = sc.nextInt();
+					if (list.size() > index) {
+						list.get(index);
+						System.out.println(list.get(index) + " is at index " + index + ".");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 4:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter item to search for: ");
+					String search = sc.next();
+
+					for (int i = 0; i <= list.size(); i++) {
+						if (search.equals(list.get(i))) {
+							System.out.println(search + " found at index " + i + ".");
+							break;
+						}
+					}
+					break;
+				case 5:
+					list.clear();
+					System.out.println("The list has been cleared.");
+					break;
+				case 6:
+					if (list.size() == 1) {
+						list.toString();
+					} else if (list.size() != 0) {
+						System.out.println("The list of size " + list.size() + " has the following items: ");
+						list.toString();
+						}
+					} else if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.println();
+					break;
+				case 7:
+					System.out.println("Exiting program...Good Bye.");
+					run = false;
+					break;
+				default:
+					System.out.println("Please choose a valid choice.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("That was not valid choice.");
+				System.out.println("The program has ended. Please rerun and try again.");
+				sc.close();
+				run = false;
+			}
+		}
+	}
+}

@@ -1,0 +1,3 @@
+While working on this lab, I learned how the different sorting algorithms work.
+I also learned how these sorting algorithms can also be improved for more efficient sorting.
+I will learn to use these sorting algorithms in my future programs.

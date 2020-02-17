@@ -1,0 +1,982 @@
+::::::::::::::
+ListRA
+::::::::::::::
+package Lab8;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.lang.IndexOutOfBoundsException;
+
+public class ListRA implements ListInterface {
+	private static final int MAX_LIST = 3;
+	protected Object[] items; // an array of list items
+	protected int numItems; // number of items in list
+
+	public ListRA() {
+		items = new Object[MAX_LIST];
+		numItems = 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return (numItems == 0);
+	}
+
+	@Override
+	public int size() {
+		return numItems;
+	}
+
+	@Override
+	public void add(int index, Object item) throws IndexOutOfBoundsException {
+		if (index >= 0 && index <= numItems) {
+
+			for (int pos = numItems - 1; pos >= index; pos--) {
+				items[pos + 1] = items[pos];
+			}
+			items[index] = item;
+			numItems++;
+		} else {
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on add");
+		}
+	}
+
+	@Override
+	public Object get(int index) throws IndexOutOfBoundsException {
+		if (index >= 0 && index < numItems) {
+			return items[index];
+		} else {
+			// index out of range
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on get");
+		}
+	}
+
+	@Override
+	public void remove(int index) throws IndexOutOfBoundsException {
+		if (index >= 0 && index < numItems) {
+
+			for (int pos = index + 1; pos < numItems; pos++) {
+				items[pos - 1] = items[pos];
+			}
+			numItems--;
+		} else {
+
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on remove");
+		}
+	}
+
+	@Override
+	public void removeAll() {
+		items = new Object[MAX_LIST];
+		numItems = 0;
+	}
+
+	public static void main(String[] args) {
+
+		ArrayList<String> list = new ArrayList<String>();
+		Scanner sc = new Scanner(System.in);
+		boolean run = true;
+
+		while (run == true) {
+			try {
+				System.out.println("");
+				System.out.println("**********");
+				System.out.println("1. Insert item to list.");
+				System.out.println("2. Remove item from list.");
+				System.out.println("3. Get item from list.");
+				System.out.println("4. Search for a specified item in the list.");
+				System.out.println("5. Clear list.");
+				System.out.println("6. Print size and content of list.");
+				System.out.println("7. Exit Program.");
+				System.out.print("Make a menu selection now: ");
+
+				int choice = sc.nextInt();
+
+				switch (choice) {
+				case 1:
+					System.out.println("You are now inserting a new item to the list.");
+					System.out.print("Enter item: ");
+					String item = sc.next();
+
+					System.out.print("Enter the position to insert the item in: ");
+					int index1 = sc.nextInt();
+
+					if (index1 > list.size()) {
+						System.out.println("Position specified is out of range.");
+						System.out.println("Item not added.");
+						break;
+					}
+
+					list.add(index1, item);
+
+					System.out.println("Item " + item + " inserted in position " + index1 + " in the list.");
+					break;
+				case 2:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.print("Enter position to remove item from: ");
+					int index2 = sc.nextInt();
+
+					if (list.size() <= index2) {
+						list.remove(index2);
+						System.out.println("Item at index " + index2 + " has been removed.");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 3:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter position to retrieve item from: ");
+					int index = sc.nextInt();
+					if (list.size() > index) {
+						list.get(index);
+						System.out.println(list.get(index) + " is at index " + index + ".");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 4:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter item to search for: ");
+					String search = sc.next();
+
+					for (int i = 0; i <= list.size(); i++) {
+						if (search.equals(list.get(i))) {
+							System.out.println(search + " found at index " + i + ".");
+							break;
+						}
+					}
+					break;
+				case 5:
+					list.clear();
+					System.out.println("The list has been cleared.");
+					break;
+				case 6:
+					if (list.size() == 1) {
+						list.toString();
+					} else if (list.size() != 0) {
+						System.out.println("The list of size " + list.size() + " has the following items: ");
+						list.toString();
+						}
+					} else if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.println();
+					break;
+				case 7:
+					System.out.println("Exiting program...Good Bye.");
+					run = false;
+					break;
+				default:
+					System.out.println("Please choose a valid choice.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("That was not valid choice.");
+				System.out.println("The program has ended. Please rerun and try again.");
+				sc.close();
+				run = false;
+			}
+		}
+	}
+}
+::::::::::::::
+ListRAPlus
+::::::::::::::
+package Lab8;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.lang.IndexOutOfBoundsException;
+
+public class ListRAPlus implements ListInterface {
+	private static final int MAX_LIST = 3;
+	protected Object[] items; // an array of list items
+	protected int numItems; // number of items in list
+
+	public ListRAPlus() {
+		items = new Object[MAX_LIST];
+		numItems = 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return (numItems == 0);
+	}
+
+	@Override
+	public int size() {
+		return numItems;
+	}
+
+	@Override
+	public void add(int index, Object item) throws IndexOutOfBoundsException {
+		if (index >= 0 && index <= numItems) {
+
+			for (int pos = numItems - 1; pos >= index; pos--) {
+				items[pos + 1] = items[pos];
+			}
+			items[index] = item;
+			numItems++;
+		} else {
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on add");
+		}
+	}
+
+	@Override
+	public Object get(int index) throws IndexOutOfBoundsException {
+		if (index >= 0 && index < numItems) {
+			return items[index];
+		} else {
+			// index out of range
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on get");
+		}
+	}
+
+	@Override
+	public void remove(int index) throws IndexOutOfBoundsException {
+		if (index >= 0 && index < numItems) {
+
+			for (int pos = index + 1; pos < numItems; pos++) {
+				items[pos - 1] = items[pos];
+			}
+			numItems--;
+		} else {
+
+			throw new IndexOutOfBoundsException("IndexOutOfBoundsException on remove");
+		}
+	}
+
+	@Override
+	public void removeAll() {
+		items = new Object[MAX_LIST];
+		numItems = 0;
+	}
+
+	public static void main(String[] args) {
+
+		ArrayList<String> list = new ArrayList<String>();
+		Scanner sc = new Scanner(System.in);
+		boolean run = true;
+
+		while (run == true) {
+			try {
+				System.out.println("");
+				System.out.println("**********");
+				System.out.println("1. Insert item to ordered list.");
+				System.out.println("2. Remove item from list.");
+				System.out.println("3. Get item from list.");
+				System.out.println("4. Search for a specified item in the list.");
+				System.out.println("5. Clear list.");
+				System.out.println("6. Print size and content of list.");
+				System.out.println("7. Exit Program.");
+				System.out.print("Make a menu selection now: ");
+
+				int choice = sc.nextInt();
+
+				switch (choice) {
+				case 1:
+					System.out.println("You are now inserting a new item to the list.");
+					System.out.print("Enter item: ");
+					String item = sc.next();
+
+					if (list.size() == 0) {
+						list.add(item);
+						System.out.println("Item " + list.get(list.size() - 1) + " inserted in the list.");
+						break;
+					}
+
+					//Modified Sequential Search I
+					if (list.contains(item)) { // If (key == current item)
+						System.out.println(item + " already exists at index " + list.indexOf(item) + ".");
+						//Stop (successful, position)
+						System.out.println("Duplicate items cannot be added to the list.");
+						break;
+					} else if (!list.contains(item)) { // Else if (key < current item)
+						list.add(item); // Stop (unsuccessful, position) // Adds the item.
+						System.out.println("Item " + list.get(list.size() - 1) + " inserted in the list.");
+						break;
+					}
+				case 2:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.print("Enter position to remove item from: ");
+					int index2 = sc.nextInt();
+
+					if (list.size() <= index2) {
+						list.remove(index2);
+						System.out.println("Item at index " + index2 + " has been removed.");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 3:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter position to retrieve item from: ");
+					int index = sc.nextInt();
+					if (list.size() > index) {
+						list.get(index);
+						System.out.println(list.get(index) + " is at index " + index + ".");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 4:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter item to search for: ");
+					String search4 = sc.next();
+
+					for (int i = 0; i <= list.size(); i++) {
+						if (search4.equals(list.get(i))) {
+							System.out.println(search4 + " found at index " + i + ".");
+							break;
+						}
+					}
+					break;
+				case 5:
+					list.clear();
+					System.out.println("The list has been cleared.");
+					break;
+				case 6:
+					if (list.size() == 1) {
+						System.out.println("The list of size 1 has the following item: ");
+						System.out.println("(0)" + list.get(0));
+					} else if (list.size() != 0) {
+						System.out.println("The list of size " + list.size() + " has the following items: ");
+						int p = 0;
+						while (p != list.size()) {
+							System.out.println("(" + p + ")" + list.get(p) + " ");
+							p++;
+						}
+					} else if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.println();
+					break;
+				case 7:
+					System.out.println("Exiting program...Good Bye.");
+					run = false;
+					break;
+				default:
+					System.out.println("Please choose a valid choice.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("That was not valid choice.");
+				System.out.println("The program has ended. Please rerun and try again.");
+				sc.close();
+				run = false;
+			}
+		}
+	}
+}
+::::::::::::::
+ListInterface
+::::::::::::::
+package Lab8;
+
+// ********************************************************
+// Interface ListInterface for the ADT list.
+// *********************************************************
+public interface ListInterface 
+{
+  boolean isEmpty();
+  int size();
+  void add(int index, Object item) 
+                  throws ListIndexOutOfBoundsException;
+  Object get(int index) 
+                    throws ListIndexOutOfBoundsException;
+  void remove(int index) 
+                     throws ListIndexOutOfBoundsException;
+  void removeAll();
+}  // end ListInterface
+
+/**
+
+public void add(int index, E element) {
+    rangeCheckForAdd(index);
+
+public E get(int index) {
+            rangeCheck(index);
+            checkForComodification();
+            return ArrayList.this.elementData(offset + index);
+        }
+        
+        public void remove() {
+            if (lastRet < 0)
+                throw new IllegalStateException();
+            checkForComodification();
+
+            try {
+                ArrayList.this.remove(lastRet);
+                cursor = lastRet;
+                lastRet = -1;
+                expectedModCount = modCount;
+            } catch (IndexOutOfBoundsException ex) {
+                throw new ConcurrentModificationException();
+            }
+        }
+        
+        public boolean removeAll(Collection<?> c) {
+        Objects.requireNonNull(c);
+        return batchRemove(c, false);
+    }
+
+**/
+::::::::::::::
+AscendinglyOrderedStringList
+::::::::::::::
+package Lab8;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.lang.IndexOutOfBoundsException;
+
+public abstract class AscendinglyOrderedStringList implements ListInterface {
+	public interface AscendinglyOrderedStringListInterface 
+	{ boolean isEmpty();
+	  int size();
+	  void add(String item) throws ListIndexOutOfBoundsException;
+	  String get(int index) throws ListIndexOutOfBoundsException;
+	  void remove(int index) throws ListIndexOutOfBoundsException;
+	  int search(String item);
+	  void clear();
+	}
+
+	static ArrayList<String> list = new ArrayList<String>();
+	static String item;
+
+	public static void main(String[] args) {
+		// ArrayList<String> list = new ArrayList<String>();
+		Scanner sc = new Scanner(System.in);
+		boolean run = true;
+
+		list.add(0, "apple");
+		list.add(1, "banana");
+		list.add(2, "carrot");
+		list.add(3, "donut");
+		list.add(4, "egg");
+
+		while (run == true) {
+			try {
+				System.out.println("");
+				System.out.println("**********");
+				System.out.println("1. Insert specified item to list.");
+				System.out.println("2. Remove item from list.");
+				System.out.println("3. Get item from list.");
+				System.out.println("4. Search list for specified item.");
+				System.out.println("5. Clear list.");
+				System.out.println("6. Print size and content of list.");
+				System.out.println("7. Exit Program.");
+				System.out.print("Make a menu selection now: ");
+
+				int choice = sc.nextInt();
+
+				switch (choice) {
+				case 1:
+					System.out.println("You are now inserting a new item to the list.");
+					System.out.print("Enter item: ");
+					item = sc.next();
+
+					if (list.size() == 0) {
+						list.add(item);
+						System.out.println("Item " + list.get(list.size() - 1) + " inserted in the list.");
+						break;
+					}
+				case 2:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.print("Enter position to remove item from: ");
+					int index2 = sc.nextInt();
+
+					if (list.size() <= index2) {
+						list.remove(index2);
+						System.out.println("Item at index " + index2 + " has been removed.");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					break;
+				case 3:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter position to retrieve specified item from: ");
+					int index = sc.nextInt();
+					if (list.size() > index) {
+						list.get(index);
+						System.out.println(list.get(index) + " is at index " + index + ".");
+					} else {
+						System.out.println("That index is not on the list.");
+					}
+					
+					// Binary Search
+					/**
+					While (high < low)
+					{
+					Mid = (high + low) / 2
+					If (key == mid key)
+							Stop (successful, position)
+					Else if (key < mid key)
+							Reduce to [low, mid-1] (high = mid-1)
+					Else
+							Reduce to [mid+1, high] (low = mid+1)
+					}
+					**/
+
+					search();
+					break;
+				case 4:
+					if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+
+					System.out.print("Enter item to search for: ");
+					String search4 = sc.next();
+
+					for (int i = 0; i <= list.size(); i++) {
+						if (search4.equals(list.get(i))) {
+							System.out.println(search4 + " found at index " + i + ".");
+							break;
+						}
+					}
+					break;
+				case 5:
+					list.clear();
+					System.out.println("The list has been cleared.");
+					break;
+				case 6:
+					if (list.size() == 1) {
+						System.out.println("The list of size 1 has the following item: ");
+						System.out.println("(0)" + list.get(0));
+					} else if (list.size() != 0) {
+						System.out.println("The list of size " + list.size() + " has the following items: ");
+						int p = 0;
+						while (p != list.size()) {
+							System.out.println("(" + p + ")" + list.get(p) + " ");
+							p++;
+						}
+					} else if (list.size() == 0) {
+						System.out.println("The list is empty.");
+						break;
+					}
+					System.out.println();
+					break;
+				case 7:
+					System.out.println("Exiting program...Good Bye.");
+					run = false;
+					break;
+				default:
+					System.out.println("Please choose a valid choice.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("That was not valid choice.");
+				System.out.println("The program has ended. Please rerun and try again.");
+				sc.close();
+				run = false;
+			}
+		}
+	}
+
+	public static void search() {
+		if (list.size() - 1 >= 0) {
+			int mid = list.size() / 2;
+			String midString = list.get(mid);
+			if (midString.equals(item)) {
+				System.out.println("Item found at index" + mid);
+			}
+			if (list.indexOf(midString) > list.indexOf(item)) {
+				System.out.println("Item found at index " + mid);
+			} else {
+				System.out.println("Item not found.");
+			}
+		}
+	}
+}
+::::::::::::::
+SampleRuns.txt
+::::::::::::::
+*****ListRA*****
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 2
+The list is empty.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 3
+The list is empty.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 4
+The list is empty.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 5
+The list has been cleared.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 6
+The list is empty.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Kyle
+Enter the position to insert the item in: 0
+Item Kyle inserted in position 0 in the list.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Sam
+Enter the position to insert the item in: 1
+Item Sam inserted in position 1 in the list.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Nick
+Enter the position to insert the item in: 2
+Item Nick inserted in position 2 in the list.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 4
+Enter item to search for: Kyle
+Kyle found at index 0.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 4
+Enter item to search for: Steve
+Item not found.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 6
+The list of size 3 has the following items: 
+(0)Kyle 
+(1)Sam 
+(2)Nick 
+
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 5
+The list has been cleared.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 6
+The list is empty.
+
+**********
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 7
+Exiting program...Good Bye.
+
+*****ListRAPlus*****
+
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 2
+The list is empty.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 3
+The list is empty.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 4
+The list is empty.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 5
+The list has been cleared.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 6
+The list is empty.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Kyle
+Item Kyle inserted in the list.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Sam
+Item Sam inserted in the list.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Nick
+Item Nick inserted in the list.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Kyle
+Kyle already exists at index 0.
+Duplicate items cannot be added to the list.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Sam
+Sam already exists at index 1.
+Duplicate items cannot be added to the list.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 1
+You are now inserting a new item to the list.
+Enter item: Nick
+Nick already exists at index 2.
+Duplicate items cannot be added to the list.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 4
+Enter item to search for: Kyle
+Kyle found at index 0.
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 6
+The list of size 3 has the following items: 
+(0)Kyle 
+(1)Sam 
+(2)Nick 
+
+
+**********
+1. Insert item to ordered list.
+2. Remove item from list.
+3. Get item from list.
+4. Search for a specified item in the list.
+5. Clear list.
+6. Print size and content of list.
+7. Exit Program.
+Make a menu selection now: 7
+Exiting program...Good Bye.
+
+::::::::::::::
+Conclusions.txt
+::::::::::::::
+During the creation of Lab8, I learned how to search a collection of items using both a modified sequential search, and a binary search.
+I can search a collection a normal way by comparing the input to all of the elements of an array.
+I can also use Modified Sequential searches or Binary searches to search the array in a much more efficient way.

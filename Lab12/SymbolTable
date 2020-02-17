@@ -1,0 +1,73 @@
+
+package Lab12;
+
+import java.util.HashMap;
+
+public class SymbolTable {
+	HashMap<String, Integer> table = new HashMap<String, Integer>();
+
+	public void HornersRule() {
+		table.put("A", 1);
+		table.put("B", 2);
+		table.put("C", 3);
+		table.put("D", 4);
+		table.put("E", 5);
+		table.put("F", 6);
+		table.put("G", 7);
+		table.put("H", 8);
+		table.put("I", 9);
+		table.put("J", 10);
+		table.put("K", 11);
+		table.put("L", 12);
+		table.put("M", 13);
+		table.put("N", 14);
+		table.put("O", 15);
+		table.put("P", 16);
+		table.put("Q", 17);
+		table.put("R", 18);
+		table.put("S", 19);
+		table.put("T", 20);
+		table.put("U", 21);
+		table.put("V", 22);
+		table.put("W", 23);
+		table.put("X", 24);
+		table.put("Y", 25);
+		table.put("Z", 26);
+		System.out.println("'A'-'Z' added.");
+	}
+
+	public void insertKey(String key, int value) {
+		if (!table.containsKey(key)) {
+			table.put(key, value);
+			System.out.println("{Key: " + key + ", Value: " + value + "} added.");
+		} else {
+			System.out.println("Key already exists.");
+		}
+	}
+
+	public void deleteKey(String key) {
+		if (table.containsKey(key)) {
+			table.remove(key);
+		} else {
+			System.out.println("Key does not exist.");
+		}
+	}
+
+	public String retrieveKey(String key) {
+		if (table.containsKey(key)) {
+			return key;
+		} else {
+			return key + " does not exist.";
+		}
+	}
+
+	public String retreiveIndex(String key) {
+		int tableSize = table.size();
+		h(key) = x(key) % tableSize;
+		if (table.containsKey(key)) {
+			// return table.indexOf(key);
+		}
+		return key;
+	}
+}
+

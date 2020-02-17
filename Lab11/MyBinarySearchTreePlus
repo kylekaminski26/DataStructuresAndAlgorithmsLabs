@@ -1,0 +1,65 @@
+package Lab11;
+
+public class MyBinarySearchTreePlus<T extends KeyedItem<KT>, KT extends Comparable<? super KT>>
+		extends MyBinarySearchTree<T, KT> implements BSTPInterface<T, KT> {
+
+	@Override
+	public int getHeight(TreeNode tNode) {
+		if (tNode == null) {
+			return 0;
+		} else {
+			int left = getHeight(tNode);
+			int right = getHeight(tNode);
+			if (left > right) {
+				return (left + 1);
+			} else {
+				return (right + 1);
+			}
+		}
+	}
+
+	@Override
+	public int getSize(TreeNode tNode) {
+		if (tNode == null)
+			return 0;
+		else
+			return (getSize(tNode.left) + 1 + getSize(tNode.right));
+	}
+
+	@Override
+	public String toStringInorder(TreeNode<T> root) {
+		if (root != null) {
+			toStringInorder(root.left); // Gets left child.
+			System.out.println(root); // Gets root.
+			toStringInorder(root.right); // Gets right child.
+		}
+	}
+
+	@Override
+	public String toStringPreorder(TreeNode<T> root) {
+		if (root != null) {
+			temp = root; // Gets root.
+			toStringInorder(root.left); // Gets left child.
+			toStringInorder(root.right); // Gets right child.
+			root = temp;
+		}
+	}
+
+	@Override
+	public String toStringPostorder() {
+		if (root != null) {
+			temp = root; // Gets root.
+			toStringInorder(root.left); // Gets left child.
+			toStringInorder(root.right); // Gets right child.
+			root = temp; // Gets root.
+		}
+	}
+
+	@Override
+	public MyBinarySearchTreePlus<T, KT> getCopyOfTree(TreeNode tNode) {
+		temp.left = root.left;
+		temp.right = root.right;
+		temp = root;
+		return temp.left + temp + temp.right;
+	}
+}

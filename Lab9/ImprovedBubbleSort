@@ -1,0 +1,70 @@
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ImprovedBubbleSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		ImprovedBubble(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void ImprovedBubble(int sorted[]) {
+		int last = sorted.length - 1;
+		for (int i = 1; i < sorted.length; i++) { // For when i is less than the size of array.
+			int current = -1;
+			for (int j = 0; j < last; j++) { // For when j is less than the last integer.
+				if (sorted[j] > sorted[j + 1]) {
+					int temp = sorted[j];
+					sorted[j] = sorted[j + 1];
+					sorted[j + 1] = temp;
+					current = j;
+				}
+				swap++; // Number of swaps. (n(n-1))/2
+			}
+			last = current;
+			comp++; // Number of comparisons. n-1
+		}
+	}
+	// Best case: elements are already in order (only 1 pass)
+	// Worst case: elements are in decreasing order (highest to lowest, n-1 passes).
+}

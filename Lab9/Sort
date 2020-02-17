@@ -1,0 +1,111 @@
+package Lab9;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Sort {
+	public static void main(String args[]) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> sorted = new ArrayList<Integer>();
+		Scanner sc = new Scanner(System.in);
+		int comp = 0; // number of comparisons
+		int swap = 0; // number of swaps
+
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+			
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list.add(newInt);
+				}
+				System.out.println();
+
+				System.out.println("Please make a selection.");
+				System.out.println("1. Bubble Sort");
+				System.out.println("2. Improved Bubble Sort");
+				System.out.println("3. Selection Sort");
+				System.out.println("4. Improved Selection Sort");
+				System.out.println("5. Insertion Sort");
+				System.out.println("6. Improved Selection Sort");
+				System.out.println("7. Exit");
+
+				int choice = sc.nextInt();
+				sc.close();
+
+				switch (choice) {
+				case 1:
+					Bubble();
+					break;
+				case 2:
+					ImpBubble();
+					break;
+				case 3:
+					Selection();
+					break;
+				case 4:
+					ImpSelection();
+					break;
+				case 5:
+					Insertion();
+					break;
+				case 6:
+					ImpInsertion();
+					break;
+				case 7:
+					System.out.println("Done.");
+					System.exit(0);
+					break;
+				default:
+					System.out.println();
+					break;
+				}
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+		}
+
+		System.out.println("Input Data: " + list);
+		System.out.println("Sorted Data: " + sorted);
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps: " + swap);
+	}
+
+	public static void Bubble() {
+		System.out.println("Bubble test.");
+	}
+
+	public static void ImpBubble() {
+		System.out.println("Improved Bubble test.");
+	}
+
+	public static void Selection() {
+		System.out.println("Selection test.");
+	}
+
+	public static void ImpSelection() {
+		System.out.println("Improved Selection test.");
+	}
+
+	public static void Insertion() {
+		// Shifting, now swapping
+		// grab + sequentialSearch + shift + drop
+		System.out.println("Insertion test.");
+	}
+
+	public static void ImpInsertion() {
+		System.out.println("Improved Insertion test.");
+	}
+
+	// outer loop = number of passes
+	// for loop = easier to read
+}

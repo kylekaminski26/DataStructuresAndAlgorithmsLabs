@@ -1,0 +1,50 @@
+package Lab8;
+
+// ********************************************************
+// Interface ListInterface for the ADT list.
+// *********************************************************
+public interface ListInterface 
+{
+  boolean isEmpty();
+  int size();
+  void add(int index, Object item) 
+                  throws ListIndexOutOfBoundsException;
+  Object get(int index) 
+                    throws ListIndexOutOfBoundsException;
+  void remove(int index) 
+                     throws ListIndexOutOfBoundsException;
+  void removeAll();
+}  // end ListInterface
+
+/**
+
+public void add(int index, E element) {
+    rangeCheckForAdd(index);
+
+public E get(int index) {
+            rangeCheck(index);
+            checkForComodification();
+            return ArrayList.this.elementData(offset + index);
+        }
+        
+        public void remove() {
+            if (lastRet < 0)
+                throw new IllegalStateException();
+            checkForComodification();
+
+            try {
+                ArrayList.this.remove(lastRet);
+                cursor = lastRet;
+                lastRet = -1;
+                expectedModCount = modCount;
+            } catch (IndexOutOfBoundsException ex) {
+                throw new ConcurrentModificationException();
+            }
+        }
+        
+        public boolean removeAll(Collection<?> c) {
+        Objects.requireNonNull(c);
+        return batchRemove(c, false);
+    }
+
+**/

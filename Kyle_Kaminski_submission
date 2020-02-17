@@ -1,0 +1,88 @@
+Script started on 2018-12-10 16:53:25-05:00
+]0;kaminskik6@elvix2:~/DSA[kaminskik6@elvis DSA]$ cp -r Project ~hristescu/DSA/Project/yourloginname[K[K[K[K[K[K[K[K[K[K[K[K[Kkaminskik6
+]0;kaminskik6@elvix2:~/DSA[kaminskik6@elvis DSA]$ ~hristescu/DSA/Project/Grades/fix_perms.csh
+
+[31m1. Fixing permissions for (B[m kaminskik6 [31m... done. 
+
+[31m2. Check what was submitted:(B[m
+total 412
+-rw-r--r-- 1 kaminskik6 domain users   645 Dec 10 16:53 allclasses-frame.html
+-rw-r--r-- 1 kaminskik6 domain users   625 Dec 10 16:53 allclasses-noframe.html
+-rw-r--r-- 1 kaminskik6 domain users  3507 Dec 10 16:53 constant-values.html
+-rw-r--r-- 1 kaminskik6 domain users  1180 Dec 10 16:47 Customer.class
+-rw-r--r-- 1 kaminskik6 domain users 10564 Dec 10 16:53 Customer.html
+-rw-r--r-- 1 kaminskik6 domain users  1976 Dec 10 16:53 Customer.java
+-rw-r--r-- 1 kaminskik6 domain users  3457 Dec 10 16:53 deprecated-list.html
+-rw-r--r-- 1 kaminskik6 domain users  1265 Dec 10 16:47 DEQ.class
+-rw-r--r-- 1 kaminskik6 domain users 11880 Dec 10 16:53 DEQ.html
+-rw-r--r-- 1 kaminskik6 domain users  2087 Dec 10 16:53 DEQ.java
+-rw-r--r-- 1 kaminskik6 domain users  4528 Dec 10 16:47 Driver.class
+-rw-r--r-- 1 kaminskik6 domain users  7897 Dec 10 16:53 Driver.html
+-rw-r--r-- 1 kaminskik6 domain users  8757 Dec 10 16:53 Driver.java
+-rw-r--r-- 1 kaminskik6 domain users   251 Dec 10 16:47 ExtendedQueueException.class
+-rw-r--r-- 1 kaminskik6 domain users   549 Dec 10 16:53 ExtendedQueueException.java
+-rw-r--r-- 1 kaminskik6 domain users   454 Dec 10 16:47 ExtendedQueueInterface.class
+-rw-r--r-- 1 kaminskik6 domain users   615 Dec 10 16:53 ExtendedQueueInterface.java
+-rw-r--r-- 1 kaminskik6 domain users  7892 Dec 10 16:53 help-doc.html
+-rw-r--r-- 1 kaminskik6 domain users 10903 Dec 10 16:53 index-all.html
+-rw-r--r-- 1 kaminskik6 domain users  2756 Dec 10 16:53 index.html
+-rw-r--r-- 1 kaminskik6 domain users   239 Dec 10 16:47 InvalidException.class
+-rw-r--r-- 1 kaminskik6 domain users   490 Dec 10 16:53 InvalidException.java
+-rw-r--r-- 1 kaminskik6 domain users   704 Dec 10 16:47 Item.class
+-rw-r--r-- 1 kaminskik6 domain users 10146 Dec 10 16:53 Item.html
+-rw-r--r-- 1 kaminskik6 domain users  1346 Dec 10 16:53 Item.java
+-rw-r--r-- 1 kaminskik6 domain users   393 Dec 10 16:53 Kyle_Kaminski_submission
+-rw-r--r-- 1 kaminskik6 domain users   243 Dec 10 16:47 NonUniqueException.class
+-rw-r--r-- 1 kaminskik6 domain users   498 Dec 10 16:53 NonUniqueException.java
+-rw-r--r-- 1 kaminskik6 domain users 52606 Dec 10 16:53 output
+-rw-r--r-- 1 kaminskik6 domain users 52606 Dec 10 16:47 Output.txt
+-rw-r--r-- 1 kaminskik6 domain users  3696 Dec 10 16:53 overview-tree.html
+-rw-r--r-- 1 kaminskik6 domain users   752 Dec 10 16:53 package-frame.html
+-rw-r--r-- 1 kaminskik6 domain users     1 Dec 10 16:53 package-list
+-rw-r--r-- 1 kaminskik6 domain users  3867 Dec 10 16:53 package-summary.html
+-rw-r--r-- 1 kaminskik6 domain users  3705 Dec 10 16:53 package-tree.html
+-rw-r--r-- 1 kaminskik6 domain users  2006 Dec 10 16:47 Queue.class
+-rw-r--r-- 1 kaminskik6 domain users   235 Dec 10 16:47 QueueException.class
+-rw-r--r-- 1 kaminskik6 domain users   483 Dec 10 16:53 QueueException.java
+-rw-r--r-- 1 kaminskik6 domain users 14726 Dec 10 16:53 Queue.html
+-rw-r--r-- 1 kaminskik6 domain users   467 Dec 10 16:47 QueueInterface.class
+-rw-r--r-- 1 kaminskik6 domain users   583 Dec 10 16:53 QueueInterface.java
+-rw-r--r-- 1 kaminskik6 domain users  3041 Dec 10 16:53 Queue.java
+-rw-r--r-- 1 kaminskik6 domain users  4883 Dec 10 16:53 Rationale
+-rw-r--r-- 1 kaminskik6 domain users  4883 Dec 10 16:47 Rationale.txt
+-rw-r--r-- 1 kaminskik6 domain users   827 Dec 10 16:53 script.js
+-rw-r--r-- 1 kaminskik6 domain users  6978 Dec 10 16:47 ShoppingCenter.class
+-rw-r--r-- 1 kaminskik6 domain users 20963 Dec 10 16:53 ShoppingCenter.html
+-rw-r--r-- 1 kaminskik6 domain users 15492 Dec 10 16:53 ShoppingCenter.java
+-rw-r--r-- 1 kaminskik6 domain users 12842 Dec 10 16:53 stylesheet.css
+
+[31m3. Let's make sure your code compiles:(B[m
+Note: /home/hristescu/DSA/Project/kaminskik6/Project/Queue.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+[31m4. Check that an output file was submitted:(B[m
+-rw-r--r-- 1 kaminskik6 domain users 52606 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/output
+
+[31m4. Check that Java doc were submitted:(B[m
+-rw-r--r-- 1 kaminskik6 domain users   645 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/allclasses-frame.html
+-rw-r--r-- 1 kaminskik6 domain users   625 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/allclasses-noframe.html
+-rw-r--r-- 1 kaminskik6 domain users  3507 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/constant-values.html
+-rw-r--r-- 1 kaminskik6 domain users 10564 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/Customer.html
+-rw-r--r-- 1 kaminskik6 domain users  3457 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/deprecated-list.html
+-rw-r--r-- 1 kaminskik6 domain users 11880 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/DEQ.html
+-rw-r--r-- 1 kaminskik6 domain users  7897 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/Driver.html
+-rw-r--r-- 1 kaminskik6 domain users  7892 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/help-doc.html
+-rw-r--r-- 1 kaminskik6 domain users 10903 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/index-all.html
+-rw-r--r-- 1 kaminskik6 domain users  2756 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/index.html
+-rw-r--r-- 1 kaminskik6 domain users 10146 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/Item.html
+-rw-r--r-- 1 kaminskik6 domain users  3696 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/overview-tree.html
+-rw-r--r-- 1 kaminskik6 domain users   752 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/package-frame.html
+-rw-r--r-- 1 kaminskik6 domain users  3867 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/package-summary.html
+-rw-r--r-- 1 kaminskik6 domain users  3705 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/package-tree.html
+-rw-r--r-- 1 kaminskik6 domain users 14726 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/Queue.html
+-rw-r--r-- 1 kaminskik6 domain users 20963 Dec 10 16:53 /home/hristescu/DSA/Project/kaminskik6/Project/ShoppingCenter.html
+
+[31mIf anything does not look right or if your code doesn't compile, please fix and resubmit.(B[m
+]0;kaminskik6@elvix2:~/DSA[kaminskik6@elvis DSA]$ exit
+
+Script done on 2018-12-10 16:54:09-05:00

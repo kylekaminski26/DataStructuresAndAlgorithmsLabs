@@ -1,0 +1,192 @@
+*****BubbleSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 10
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 10
+
+*****ImprovedBubbleSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 4
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 10
+
+*****SelectionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 4
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 10
+Number of swaps or shifts: 4
+
+*****ImprovedSelectionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 4
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 4
+
+*****InsertionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+*****ImprovedInsertionSort
+
+Enter number of integers: 5
+
+Enter integer number 1: 1
+Enter integer number 2: 2
+Enter integer number 3: 3
+Enter integer number 4: 4
+Enter integer number 5: 5
+
+Input Data: 
+[1, 2, 3, 4, 5]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+
+Enter number of integers: 5
+
+Enter integer number 1: 5
+Enter integer number 2: 4
+Enter integer number 3: 3
+Enter integer number 4: 2
+Enter integer number 5: 1
+
+Input Data: 
+[5, 4, 3, 2, 1]
+Sorted Data: 
+[1, 2, 3, 4, 5]
+Number of comparisons: 4
+Number of swaps or shifts: 0
+

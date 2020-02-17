@@ -1,0 +1,71 @@
+package Lab9;
+
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ImprovedSelectionSort {
+	static Scanner sc = new Scanner(System.in);
+	static int comp = 0; // number of comparisons. Will increment in the method loops.
+	static int swap = 0; // number of swaps. Will increment in the method loops.
+	static int[] list = new int[0];
+
+	public static void main(String args[]) {
+		try {
+			System.out.print("Enter number of integers: ");
+			int numInt = sc.nextInt();
+
+			list = new int[numInt];
+
+			System.out.println();
+
+			if (numInt <= 0) {
+				System.out.println("Please choose a correct number of integers.");
+				sc.close();
+				return;
+			} else {
+				for (int a = 1; numInt >= a; a++) {
+					int b = a - 1;
+					System.out.print("Enter integer number " + a + ": ");
+					int newInt = sc.nextInt();
+					list[b] = newInt;
+				}
+				System.out.println();
+
+				System.out.println("Input Data: ");
+				System.out.println(Arrays.toString(list));
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter a valid value.");
+			return;
+		}
+
+		ImpSelection(list);
+
+		System.out.println("Sorted Data: ");
+		System.out.println(Arrays.toString(list));
+		System.out.println("Number of comparisons: " + comp);
+		System.out.println("Number of swaps or shifts: " + swap);
+	}
+
+	public static void ImpSelection(int sorted[]) {
+		int length = sorted.length;
+		for (int i = 0; i < length - 1; i++) {
+			comp++; // Number of comparisons. n-1
+			int minI = i;
+			for (int k = i + 1; k < length; k++) {
+				if (sorted[k] < sorted[minI]) {
+					minI = k;
+				}
+			}
+			swap++; // Number of swaps. n-1
+			if (i != minI) { // If the index is not the minimum index.
+				int temp = sorted[i];
+				sorted[i] = sorted[minI];
+				sorted[minI] = temp;
+			}
+		}
+	}
+	// Best case: O(n^2).
+	// Worst case: O(n^2).
+}

@@ -1,0 +1,76 @@
+package Lab11;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Driver {
+	static boolean run = true;
+	static Scanner sc = new Scanner(System.in);
+
+	public static void main(String args[]) {
+		while (run == true)
+			try {
+				System.out.println("\n1. Insert key in BST.");
+				System.out.println("2. Delete key from BST.");
+				System.out.println("3. Search for key in BST.");
+				System.out.println("4. Display height of BST.");
+				System.out.println("5. Display size of BST.");
+				System.out.println("6. Display content of BST in inorder.");
+				System.out.println("7. Display content of BST in preorder.");
+				System.out.println("8. Display content of BST in postorder.");
+				System.out.println("9. Build copy of the tree, and test it.");
+				System.out.println("10. Exit Program.");
+				System.out.print("Enter menu selection: ");
+				int choice = sc.nextInt();
+				switch (choice) {
+				case 1:
+					// Insert key in BST.
+					MyBinarySearchTree.insert();
+					break;
+				case 2:
+					// Delete key from BST.
+					MyBinarySearchTree.delete();
+					break;
+				case 3:
+					// Search for key in BST.
+					MyBinarySearchTree.retrieve();
+					break;
+				case 4:
+					// Display height of BST.
+					MyBinarySearchTreePlus.getHeight();
+					break;
+				case 5:
+					// Display size of BST.
+					MyBinarySearchTreePlus.getSize();
+					break;
+				case 6:
+					// Display content of BST in inorder.
+					MyBinarySearchTreePlus.toStringInorder();
+					break;
+				case 7:
+					// Display content of BST in preorder.
+					MyBinarySearchTreePlus.toStringPreorder();
+					break;
+				case 8:
+					// Display content of BST in postorder.
+					MyBinarySearchTreePlus.toStringPostorder();
+					break;
+				case 9:
+					// Build copy of the tree, and test it.
+					MyBinarySearchTreePlus.getCopyOfTree();
+					break;
+				case 10:
+					// Exit Program.
+					run = false;
+					break;
+				default:
+					// Default.
+					System.out.println("Please enter a valid input.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Please enter a valid input.");
+			}
+	}
+}
+
