@@ -1,0 +1,29 @@
+public class ListArrayListBasedPlus implements ListInterface {
+
+	@Override
+	public boolean isEmpty() {
+		return false;
+	}
+
+	@Override
+	public int size() {
+		return 0;
+	}
+
+	@Override
+	public void add(int index, Object item) throws ListIndexOutOfBoundsException {
+	}
+
+	@Override
+	public Object get(int index) throws ListIndexOutOfBoundsException {
+		return null;
+	}
+
+	@Override
+	public void remove(int index) throws ListIndexOutOfBoundsException {
+	}
+
+	@Override
+	public void removeAll() {
+	}
+}

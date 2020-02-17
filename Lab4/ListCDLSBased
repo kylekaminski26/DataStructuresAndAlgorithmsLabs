@@ -1,0 +1,109 @@
+/*
+* Purpose: Data Structure and Algorithms Lab 4 Problem 1
+* Status: Complete and thoroughly tested.
+* Last update: 10/15/18
+* Submitted:  10/01/18
+* @author: Kyle Kaminski
+* @version: 1.1
+*/
+
+public class ListCDLSBased implements ListInterface {
+	private DNode tail = null;
+	private int numItems = 0;
+
+	public boolean isEmpty() { // Checks if the CDLS is empty
+		if (numItems == 0) { // if the size is 0
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public int size() { // Returns the size of CDLS
+		return numItems;
+	}
+
+	public void add(int i, Object item) throws ListIndexOutOfBoundsException { // Adds an element to the CDLS
+		if (i >= 0 && i < size() + 1) {
+			if (size() == 0) { // If list is empty.
+				DNode Node1 = new DNode(item);
+				tail = Node1;
+				numItems++;
+			} else { // If list has elements.
+				DNode previous = find(i - 1);
+				DNode Node2 = new DNode(item, previous.getNext(), previous);
+				previous.setNext(Node2);
+				Node2.setNext(tail);
+				tail.setBack(Node2);
+				Node2.setBack(previous);
+				numItems++;
+			}
+		} else {
+			throw new ListIndexOutOfBoundsException(
+					"CDLS out of bounds exception occured during the execution of the add method.");
+		}
+	}
+
+	public void remove(int i) throws ListIndexOutOfBoundsException { // Removes an element from the CDLS. Code is very
+																		// similar to the add() method.
+		if (i >= 0 && i < size()) {
+			if (i == 0) {
+				tail = tail.getNext();
+				numItems--;
+			} else {
+				DNode last = find(i - 1);
+				DNode current = last.getNext();
+				last.setNext(current.getNext());
+				last.setBack(current.getBack());
+				numItems--; // The list size is now one less than what it was.
+			}
+		} else {
+			throw new ListIndexOutOfBoundsException(
+					"CDLS out of bounds exception occured during the execution of the remove method.");
+		}
+	}
+
+	public void removeAll() { // Clears the CDLS
+		tail = null;
+		numItems = 0; // Resets the list.
+	}
+
+	public Object get(int i) throws ListIndexOutOfBoundsException { // Gets an item from the CDLS. Also similar to add()
+																	// method.
+		if (i >= 0 && i < size()) {
+			DNode current = find(i);
+			Object data = current.getItem();
+			return data;
+		} else {
+			throw new ListIndexOutOfBoundsException(
+					"CDLS out of bounds exception occured during the execution of the get method.");
+		}
+	}
+
+	private DNode find(int i) { // Finds an item from the CDLS
+		DNode current = tail;
+		DNode last = tail.getBack();
+		int next = 0;
+		int previous = size() - 1;
+		for (next = 0, previous = size() - 1; next < i && previous > i; next++, previous--) {
+			last = last.getBack();
+			current = current.getNext();
+		}
+		if (next == i) {
+			return current;
+		} else {
+			return last;
+		}
+	}
+
+	@Override
+	public String toString() { // Overrides the toString method, lets me print the contents of the array list.
+		String print = "";
+		DNode current = tail;
+		for (int i = 0; i < size(); i++) {
+			print += current.getItem() + toString();
+			current = current.getNext();
+		}
+		return "Size: " + size() + ". Content: " + print;
+	}
+}

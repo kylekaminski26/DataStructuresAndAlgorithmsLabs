@@ -1,0 +1,41 @@
+public class DNode {
+	private Object item;
+	private DNode next;
+	private DNode back;
+
+	public DNode(Object NewItem) {
+		this.item = NewItem;
+		next = this;
+		back = this;
+	}
+
+	public DNode(Object newItem, DNode nextNode, DNode backNode) {
+		this.item = newItem;
+		next = nextNode;
+		back = backNode;
+	}
+
+	public void setItem(Object newItem) {
+		item = newItem;
+	}
+	
+	public void setNext(DNode nextNode) {
+		next = nextNode;
+	}
+
+	public void setBack(DNode backNode) {
+		back = backNode;
+	}
+	
+	public Object getItem() {
+		return item;
+	}
+
+	public DNode getNext() {
+		return next;
+	}
+
+	public DNode getBack() {
+		return back;
+	}
+}

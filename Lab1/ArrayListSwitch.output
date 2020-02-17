@@ -1,0 +1,151 @@
+*****ArrayList.java*****
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+1
+What character do you want to add?
+a
+a was added to the end of the collection.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+2
+ArrayList has been cleared.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+1
+What character do you want to add?
+a
+a was added to the end of the collection.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+3
+Search for which character?
+a
+ArrayList has character a
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+4
+Get the character from which position (0 is the start)?
+0
+a is in position 0
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+5
+ArrayList is not empty.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+8
+Here is your ArrayList: [a]
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+9
+Here is your reverse ArrayList: [a]
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+6
+Remove character from which position?
+0
+a has been removed from position 0
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+10
+

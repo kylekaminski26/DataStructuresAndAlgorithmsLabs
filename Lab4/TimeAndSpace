@@ -1,0 +1,23 @@
+For a list of n items:
+
+Space Complexity:
+CDLS uses 24 bytes of memory.
+This is because each node has 8 bytes.
+Of those 8 bytes, 4 bytes are for data and 4 are for holding the address.
+
+Time Complexity:
+
+get()
+	Best = 0
+	Worst = 0
+	Average = 0 
+	
+add()
+	Best = 0
+	Worst = n
+	Average = n/2 
+	
+remove()
+	Best = 0
+	Worst = n-1
+	Average = (n-1)/2

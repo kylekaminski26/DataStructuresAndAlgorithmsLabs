@@ -1,0 +1,159 @@
+import java.util.InputMismatchException;
+import java.util.Random;
+
+/*
+ * Purpose: Data Structure and Algorithms Lab 5 Problem 2
+ * Status: Complete and thoroughly tested.
+ * Last update: 10/08/18
+ * Submitted:  10/08/18
+ * @author: Kyle Kaminski
+ * @version: 1.0
+ */
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Delivery {
+	public static void main(String[] args) {
+		Stack<String> item = new Stack<String>();
+		Stack<Float> itemWeight = new Stack<Float>();
+		Stack<Integer> number = new Stack<Integer>();
+		Stack<String> sender = new Stack<String>();
+		Stack<String> recipient = new Stack<String>();
+		Stack<String> sample = new Stack<String>();
+		Stack<Float> sampleWeight = new Stack<Float>();
+		Scanner sc = new Scanner(System.in);
+		boolean endProgram = false;
+		int choice;
+
+		do {
+			try {
+				System.out.println("");
+				System.out.println("************************************************************");
+				System.out.println("0. Exit.");
+				System.out.println("1. Pick up an order.");
+				System.out.println("2. Drop off an order.");
+				System.out.println("3. Display number of packages and weight of bag.");
+				System.out.println("4. Display number of items and weight of the bag of samples.");
+				System.out.println("5. Enjoy an item from the bag of samples.");
+				System.out.println("6. Empty the bag of samples.");
+				System.out.print("Make a menu selection now: ");
+				choice = sc.nextInt();
+
+				System.out.println("");
+				System.out.println("***");
+				switch (choice) {
+				case 0: // Exit.
+					System.out.println("Done.");
+					sc.close();
+					System.exit(0);
+					break;
+				case 1: // Pick up an order.
+					String itemAdd;
+					float weightAdd;
+					int numberAdd;
+					String senderAdd;
+					String recipientAdd;
+
+					System.out.print("Enter item: ");
+					itemAdd = sc.next();
+					item.push(itemAdd);
+
+					System.out.print("Enter weight: ");
+					weightAdd = sc.nextFloat();
+					itemWeight.push(weightAdd);
+
+					System.out.print("Enter number: ");
+					numberAdd = sc.nextInt();
+					number.push(numberAdd);
+
+					System.out.print("Enter sender: ");
+					senderAdd = sc.next();
+					sender.push(senderAdd);
+
+					System.out.print("Enter recipient: ");
+					recipientAdd = sc.next();
+					recipient.push(recipientAdd);
+
+					System.out.println("Added: " + item.peek() + ", " + number.peek() + ", " + itemWeight.peek() + ", "
+							+ sender.peek() + ", " + recipient.peek() + ".");
+					break;
+
+				case 2: // Drop off an order.
+					if (item.size() == 0) {
+						System.out.println("Your bag is empty!");
+						break;
+					}
+
+					System.out.println(item.peek() + " from " + sender.peek() + " is being delivered to "
+							+ recipient.peek() + ".");
+					System.out.println("You asked " + recipient.peek() + " if you can keep one of the items.");
+					System.out.println("Can you keep one of the item? Type Y or N: ");
+					String answer = sc.next();
+
+					if (answer.equals("Y") || answer.equals("y")) {
+						System.out.println("You can keep one of the items!");
+						System.out.println(item.peek() + " will be added to your sample bag.");
+						sample.push(item.pop());
+						sampleWeight.push(itemWeight.pop());
+						number.pop();
+						sender.pop();
+						recipient.pop();
+						System.out.println(sample.peek() + " added to sample bag.");
+					} else {
+						System.out.println("You cannot keep the item.");
+						System.out.println(item.pop() + " delivered.");
+						itemWeight.pop();
+						number.pop();
+						sender.pop();
+						recipient.pop();
+					}
+					break;
+
+				case 3: // Display number of packages and weight of bag.
+					System.out.println("Bag is of size " + item.size() + ".");
+
+					float itemWeightSum = 0;
+					for (float i : itemWeight) {
+						itemWeightSum += i;
+					}
+					System.out.println("Bag is of weight " + itemWeightSum + ".");
+					break;
+
+				case 4: // Display number of items and weight of the bag of samples.
+					System.out.println("Sample bag is of size " + sample.size() + ".");
+
+					float sampleWeightSum = 0;
+					for (float i : sampleWeight) {
+						sampleWeightSum += i;
+					}
+					System.out.println("Sample bag is of weight " + sampleWeightSum + ".");
+					break;
+
+				case 5: // Enjoy an item from the bag of samples.
+					if (sample.size() == 0) {
+						System.out.println("Your bag is empty!");
+						break;
+
+					}
+					System.out.println(sample.pop() + " was enjoyed.");
+					sampleWeight.pop();
+					break;
+				case 6: // Empty the bag of samples.
+					while (sample.size() > 0) {
+						sample.pop();
+					}
+					System.out.println("Sample bag emptied.");
+					break;
+
+				default:
+					System.out.println("Please enter a valid input.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Please restart and enter a valid input.");
+				sc.close();
+				endProgram = true;
+			}
+		} while (endProgram == false);
+	}
+}a

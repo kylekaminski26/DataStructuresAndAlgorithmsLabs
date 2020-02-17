@@ -1,0 +1,92 @@
+public class StackSLS<T> implements StackInterface<T> {
+	private Node<T> head;
+
+	public StackSLS() {
+		head = null;
+	}
+
+	public boolean isEmpty() { // checks if the Node is empty.
+		if (head == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public int size() { // Returns the size of the Node.
+		int size = 0;
+		Node<T> n = head;
+		while (n != null) {
+			size++;
+			n = n.getNext();
+		}
+		return size;
+
+	}
+
+	private Node<T> find(int index) { // Finds a specific index in the node.
+		Node<T> current = head;
+		for (int skip = 0; skip < index; skip++) {
+			current = current.getNext();
+		}
+		return current;
+	}
+
+	public Object get(int index) throws StackException { // Returns an index in the Node.
+		if (index >= 0 && index < size()) {
+			Node<T> current = find(index);
+			Object data = current.getItem();
+			return data;
+		} else {
+			throw new StackException("Exception on get().");
+		}
+	}
+
+	public void removeAll() { // Clears the node.
+		head = null;
+	}
+
+	@Override
+	public String toString() { // Overrides toString. Prints the Node.
+		String result = "";
+		Node<T> current = head;
+		while (current != null) {
+			result += current.getItem() + ", ";
+			current = current.getNext();
+		}
+		return "Size:  " + size() + ", Contents: " + result;
+	}
+
+	@Override
+	public void popAll() { //Clears the node.
+		head = null;
+	}
+
+	@Override
+	public void push(Object newItem) throws StackException { //Pushes new index on the Node.
+		if (size() == 0) {
+			Node<T> newNode = new Node<T>(newItem, head);
+			head = newNode;
+		} else {
+			Node<T> previous = find(size() - 1);
+			Node<T> newNode = new Node<T>(newItem, previous.getNext());
+			previous.setNext(newNode);
+		}
+	}
+
+	@Override
+	public T pop() throws StackException { // Pops new item on Node.
+		if (isEmpty())
+			throw new StackException("Stack underflow");
+		Node<T> top = find(size() - 1);
+		System.out.println(top.getItem());
+		top = null;
+		return (T) top;
+	}
+
+	@Override
+	public T peek() throws StackException { // Returns the top of the Node.
+		Node<T> top = find(size() - 1);
+		return (T) top.getItem();
+	}
+}

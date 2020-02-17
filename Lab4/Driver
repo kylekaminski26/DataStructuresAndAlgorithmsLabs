@@ -1,0 +1,106 @@
+/*
+ * Purpose: Data Structure and Algorithms Lab 4 Problem 1
+ * Status: Complete and thoroughly tested.
+ * Last update: 10/15/18
+ * Submitted:  10/01/18
+ * @author: Kyle Kaminski
+ * @version: 1.1
+ */
+
+import java.util.Scanner;
+
+public class Driver {
+	static ListCDLSBased list = new ListCDLSBased();
+	static Scanner sc = new Scanner(System.in);
+	static boolean endProgram = false;
+
+	public static void main(String[] args) {
+		while (endProgram == false) {
+			System.out.println("");
+			System.out.println("**********");
+			System.out.println("0. Exit Program.");
+			System.out.println("1. Insert item to list.");
+			System.out.println("2. Remove item from list.");
+			System.out.println("3. Get item from list.");
+			System.out.println("4. Clear list.");
+			System.out.println("5. Display size and content of list.");
+			System.out.println("6. Reverse list.");
+			System.out.print("Make a menu selection now: ");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 0: // Exit Program.
+				System.out.println("Exiting Program...Good Bye.");
+				sc.close();
+				endProgram = true;
+				break;
+			case 1: // Insert item to list.
+				add();
+				break;
+			case 2: // Remove item from list.
+				remove();
+				break;
+			case 3: // Get item from list.
+				get();
+				break;
+			case 4: // Clear list.
+				list.removeAll();
+				break;
+			case 5: // Display size and content of list.
+				find();
+				break;
+			case 6: // Reverse list.
+				reverse();
+				break;
+			default:
+				System.out.println("Please try again.");
+			}
+		}
+	}
+
+	public static void add() {
+		System.out.print("Enter item: ");
+		Object item = sc.next();
+		System.out.print("Enter position for item: ");
+		int index1 = sc.nextInt();
+		list.add(index1, item);
+	}
+
+	public static void remove() {
+		System.out.print("Enter position: ");
+		int index2 = sc.nextInt();
+		list.remove(index2);
+	}
+
+	public static void get() {
+		System.out.print("Enter position: ");
+		int index3 = sc.nextInt();
+		System.out.println(list.get(index3) + " was at position " + index3);
+	}
+
+	public static void find() {
+		if (list.size() != 0) {
+			System.out.println("The list of size " + list.size() + " has the following items: ");
+			int p = 0;
+			while (p != list.size()) {
+				System.out.println(list.get(p) + " ");
+				p++;
+			}
+		} else {
+			System.out.println("The list is empty, nothing to display.");
+		}
+	}
+
+	public static void reverse() {
+		if (list.size() == 0) {
+			System.out.println("List is empty, nothing to reverse.");
+		} else if (list.size() == 1) {
+			System.out.println("Cannot reverse a one element list.");
+		} else {
+			ListCDLSBased temp = new ListCDLSBased();
+			for (int i = list.size() - 1; i >= 0; i--) {
+				temp.add(0, list.get(i));
+			}
+			list = temp;
+		}
+	}
+}

@@ -1,0 +1,166 @@
+/*
+ * Purpose: Data Structure and Algorithms Lab 2 Problem 1
+ * Status: Complete and thoroughly tested.
+ * Last update: 9/17/18
+ * Submitted:  9/17/18
+ * Comment: Optional sample values added as well.
+ * @author: Kyle Kaminski
+ * @version: 1.0
+ */
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class ListArrayBasedPlus extends ListArrayBased {
+	public static void main(String[] args) {
+		menu();
+	}
+
+	static ArrayList<String> list = new ArrayList<String>();
+
+	static Scanner sc = new Scanner(System.in);
+
+	public static void menu() {
+		try {
+			System.out.println("");
+			System.out.println("**********");
+			System.out.println("1. Insert item to list.");
+			System.out.println("2. Remove item from list.");
+			System.out.println("3. Get item from list.");
+			System.out.println("4. Clear list.");
+			System.out.println("5. Print size and content of list.");
+			System.out.println("6. Reverse list.");
+			System.out.println("7. Exit Program.");
+			System.out.print("Make a menu selection now: ");
+
+			int choice = sc.nextInt();
+
+			switch (choice) {
+			case 1:
+				add();
+				break;
+			case 2:
+				remove();
+				break;
+			case 3:
+				get();
+				break;
+			case 4:
+				clear();
+				break;
+			case 5:
+				print();
+				break;
+			case 6:
+				reverse();
+				break;
+			case 7:
+				System.out.println("Exiting program...Good Bye.");
+				System.exit(0);
+				break;
+			default:
+				System.out.println("Please choose a valid choice.");
+				menu();
+				break;
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("That was not valid choice.");
+			System.out.println("The program has ended. Please rerun and try again.");
+			System.exit(0);
+		}
+	}
+
+	// 1
+	private static void add() {
+		System.out.println("You are now inserting a new item to the list.");
+		System.out.print("Enter item: ");
+		String item = sc.next();
+
+		System.out.print("Enter the position to insert the item in: ");
+		int index = sc.nextInt();
+
+		if (index > list.size()) {
+			System.out.println("Position specified is out of range.");
+			menu();
+		}
+
+		list.add(index, item);
+
+		System.out.println("Item " + item + " inserted in position " + index + " in the list.");
+		menu();
+	}
+
+	// 2
+	private static void remove() {
+		if (list.size() == 0) {
+			System.out.println("The list is empty.");
+			menu();
+		}
+		System.out.print("Enter position to remove item from: ");
+		int index = sc.nextInt();
+
+		if (list.size() <= index) {
+			list.remove(index);
+			System.out.println("Item at index " + index + " has been removed.");
+		} else {
+			System.out.println("That index is not on the list.");
+		}
+		menu();
+	}
+
+	// 3
+	private static void get() {
+		if (list.size() == 0) {
+			System.out.println("The list is empty.");
+			menu();
+		}
+
+		System.out.print("Enter position to retrieve item from: ");
+		int index = sc.nextInt();
+		if (list.size() < index) {
+			list.get(index);
+			System.out.println(list.get(index) + " is at index " + index + ".");
+		} else {
+			System.out.println("That index is not on the list.");
+		}
+		menu();
+	}
+
+	// 4
+	private static void clear() {
+		list.clear();
+		System.out.println("The list has been cleared.");
+		menu();
+	}
+
+	// 5
+	private static void print() {
+		// toString();
+
+		if (list.size() == 1) {
+			System.out.println("The list of size 1 has the following item: ");
+			System.out.println("(0)" + list.get(0));
+		} else if (list.size() != 0) {
+			System.out.println("The list of size " + list.size() + " has the following items: ");
+			int p = 0;
+			while (p != list.size()) {
+				System.out.println("(" + p + ")" + list.get(p) + " ");
+				p++;
+			}
+		} else if (list.size() == 0) {
+			System.out.println("The list is empty.");
+			menu();
+		}
+		System.out.println();
+		menu();
+	}
+
+	// 6
+	private static void reverse() {
+		Collections.reverse(list);
+		System.out.println("The list has been reversed.");
+		menu();
+	}
+}

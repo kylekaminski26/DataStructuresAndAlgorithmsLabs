@@ -1,0 +1,531 @@
+*****Delivery*****
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: apple
+Enter weight: 0.6
+Enter number: 10
+Enter sender: Pikachu
+Enter recipient: Mew
+Added: apple, 10, 0.6, Pikachu, Mew.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 1.
+Bag is of weight 0.6.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: orange
+Enter weight: 0.85
+Enter number: 14
+Enter sender: Bulbasaur
+Enter recipient: Abra
+Added: orange, 14, 0.85, Bulbasaur, Abra.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: pear
+Enter weight: 0.9
+Enter number: 7
+Enter sender: Abra
+Enter recipient: Kadabra
+Added: pear, 7, 0.9, Abra, Kadabra.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 2.35.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+pear from Abra is being delivered to Kadabra.
+You asked Kadabra if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+Y
+You can keep one of the items!
+pear will be added to your sample bag.
+pear added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 1.45.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: cookie
+Enter weight: 0.1
+Enter number: 50
+Enter sender: Charizard
+Enter recipient: Squirtle
+Added: cookie, 50, 0.1, Charizard, Squirtle.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: banana
+Enter weight: 0.5
+Enter number: 22
+Enter sender: Clefairy
+Enter recipient: Vulpix
+Added: banana, 22, 0.5, Clefairy, Vulpix.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 0.9.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 4.
+Bag is of weight 2.0500002.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+banana from Clefairy is being delivered to Vulpix.
+You asked Vulpix if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+N
+You cannot keep the item.
+banana delivered.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 0.9.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 1.5500001.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+cookie from Charizard is being delivered to Squirtle.
+You asked Squirtle if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+Y
+You can keep one of the items!
+cookie will be added to your sample bag.
+cookie added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 2.
+Sample bag is of weight 1.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 1.45.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+cookie was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 1.45.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 0.9.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: granola
+Enter weight: 0.5
+Enter number: 25
+Enter sender: Jigglypuff
+Enter recipient: Meowth
+Added: granola, 25, 0.5, Jigglypuff, Meowth.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: watermellon
+Enter weight: 3.7
+Enter number: 3
+Enter sender: Slowpoke
+Enter recipient: Slowbro
+Added: watermellon, 3, 3.7, Slowpoke, Slowbro.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+watermellon from Slowpoke is being delivered to Slowbro.
+You asked Slowbro if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+Y
+You can keep one of the items!
+watermellon will be added to your sample bag.
+watermellon added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 1.95.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 4.6.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+watermellon was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 0
+
+***
+Done.

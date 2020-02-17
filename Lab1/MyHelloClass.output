@@ -1,0 +1,39 @@
+*****MyHelloClass*****
+How many people want to say hello to the class? a
+That was not a valid input.
+
+*****MyHelloClass*****
+How many people want to say hello to the class? -1
+That was not a valid input.
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 0
+No one wanted to say hello to the class...
+The program has ended. Please run the program and try again.
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 1
+Enter the name of Person 1: Kyle
+Kyle says Hello Class!!!
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 2
+Enter the name of Person 2: Kyle
+Enter the name of Person 1: Friend
+Kyle, and Friend say Hello Class!!!
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 3
+Enter the name of Person 3: Kyle
+Enter the name of Person 2: Friend
+Enter the name of Person 1: Pal
+Kyle, Friend, and Pal say Hello Class!!!
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 4
+Enter the name of Person 4: Kyle
+Enter the name of Person 3: Pal
+Enter the name of Person 2: Friend
+Enter the name of Person 1: Amigo
+Kyle, Pal, Friend, and Amigo say Hello Class!!!
+

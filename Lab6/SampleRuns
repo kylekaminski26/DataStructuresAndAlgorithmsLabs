@@ -1,0 +1,1903 @@
+**********************
+***QueueTestProgram***
+**********************
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 2
+
+***
+The queue is empty.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 3
+
+***
+The queue is empty.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 4
+
+***
+The queue is empty.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 5
+
+***
+The queue is empty.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Kyle
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Sam
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Nick
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Hanna
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Lily
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Alex
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Frank
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Steve
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Bill
+Kyle added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 3
+
+***
+The front item of the queue is Kyle
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 5
+
+***
+Here is the queue [Kyle, Sam, Nick, Hanna, Lily, Alex, Frank, Steve, Bill]
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 2
+
+***
+Kyle removed from head of queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 2
+
+***
+Sam removed from head of queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 2
+
+***
+Nick removed from head of queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 2
+
+***
+Hanna removed from head of queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 2
+
+***
+Lily removed from head of queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 5
+
+***
+Here is the queue [Alex, Frank, Steve, Bill]
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Kylew
+Alex added to queue.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 5
+
+***
+Here is the queue [Alex, Frank, Steve, Bill, Kylew]
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 4
+
+***
+The queue has been cleared.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 3
+
+***
+The queue is empty.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 5
+
+***
+The queue is empty.
+
+************************************************************
+1. Insert item at back of queue.
+2. Remove item from front of queue.
+3. Display front item of queue.
+4. Clear queue.
+5. Display content of queue.
+6. Exit.
+Make a menu selection now: 6
+
+***
+Done.
+
+**********************
+*********DEQ**********
+**********************
+
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 3
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 4
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 5
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 6
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 7
+
+***
+The DEQ is already empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 8
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Kyle
+Kyle added to back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 2
+
+***
+Enter element: Sam
+Sam added to front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Nick
+Nick added to back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 2
+
+***
+Enter element: Hanna
+Hanna added to front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Lily
+Lily added to back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 2
+
+***
+Enter element: Alex
+Alex added to front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Steve
+Steve added to back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 2
+
+***
+Enter element: Bill
+Bill added to front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 8
+
+***
+[Bill, Alex, Hanna, Sam, Kyle, Nick, Lily, Steve]
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 3
+
+***
+Bill removed from front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 4
+
+***
+Steve removed from back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 3
+
+***
+Alex removed from front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 3
+
+***
+Hanna removed from front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 4
+
+***
+Lily removed from back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 5
+
+***
+The front item of the DEQ is Sam
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 6
+
+***
+The last item of the DEQ is Nick
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 8
+
+***
+[Sam, Kyle, Nick]
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 1
+
+***
+Enter element: Mom
+Mom added to back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 2
+
+***
+Enter element: Dad
+Dad added to front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 8
+
+***
+[Dad, Sam, Kyle, Nick, Mom]
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 3
+
+***
+Dad removed from front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 3
+
+***
+Sam removed from front of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 4
+
+***
+Mom removed from back of DEQ.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 8
+
+***
+[Kyle, Nick]
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 7
+
+***
+The DEQ has been cleared.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 5
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 6
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 8
+
+***
+The DEQ is empty.
+
+************************************************************
+1. Insert item at back of DEQ.
+2. Insert item at front of DEQ.
+3. Remove item from front of DEQ.
+4. Remove item from back of DEQ.
+5. Display front item of DEQ.
+6. Display last item of DEQ.
+7. Clear DEQ.
+8. Display content of DEQ.
+9. Exit.
+Make a menu selection now: 9
+
+***
+Done.
+
+
+**********************
+*******Delivery*******
+**********************
+
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: Pizza
+Enter weight: 8
+Enter number: 1
+Enter sender: Kyle
+Enter recipient: Sam
+Added: Pizza, 1, 8.0, Kyle, Sam.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: Cake
+Enter weight: 12
+Enter number: 2
+Enter sender: Nick
+Enter recipient: Dan
+Added: Cake, 2, 12.0, Nick, Dan.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: Wings
+Enter weight: 15
+Enter number: 3
+Enter sender: Hanna
+Enter recipient: Lily
+Added: Wings, 3, 15.0, Hanna, Lily.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 35.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Pizza from Kyle is being delivered to Sam.
+You asked Sam if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Pizza will be added to your sample bag.
+Pizza added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Cake from Nick is being delivered to Dan.
+You asked Dan if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+n
+You cannot keep the item.
+Cake delivered.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Wings from Hanna is being delivered to Lily.
+You asked Lily if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Wings will be added to your sample bag.
+Wings added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 2.
+Sample bag is of weight 23.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+Wings was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 8.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+Pizza was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: Salad
+Enter weight: 20
+Enter number: 20
+Enter sender: Mom
+Enter recipient: Dad
+Added: Salad, 20, 20.0, Mom, Dad.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 1.
+Bag is of weight 20.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Salad from Mom is being delivered to Dad.
+You asked Dad if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Salad will be added to your sample bag.
+Salad added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 0
+
+***
+Done.
+
+**********************
+*****DeliveryPlus*****
+**********************
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 5
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 6
+
+***
+Your bag is already empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 1
+
+***
+Enter item: Pizza
+Enter weight: 8
+Enter number: 1
+Enter sender: Kyle
+Enter recipient: Sam
+Added: Pizza, 1, 8.0, Kyle, Sam.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 1
+
+***
+Enter item: Cake
+Enter weight: 12
+Enter number: 2
+Enter sender: Nick
+Enter recipient: Dan
+Added: Cake, 2, 12.0, Nick, Dan.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 7
+
+***
+Enter express item: ChineseFood
+Enter weight: 20
+Enter number: 5
+Enter sender: Lily
+Enter recipient: Hanna
+Express item added: ChineseFood, 5, 20.0, Lily, Hanna.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 1
+
+***
+Enter item: Wings
+Enter weight: 15
+Enter number: 3
+Enter sender: Hunter
+Enter recipient: Frank
+Added: Wings, 3, 15.0, Hunter, Frank.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 7
+
+***
+Enter express item: Pancake
+Enter weight: 12
+Enter number: 6
+Enter sender: Mom
+Enter recipient: Dad
+Express item added: Pancake, 6, 12.0, Mom, Dad.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 5.
+Bag is of weight 67.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+Pancake from Mom is being delivered to Dad.
+You asked Dad if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Pancake will be added to your sample bag.
+Pancake added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+ChineseFood from Lily is being delivered to Hanna.
+You asked Hanna if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+n
+You cannot keep the item.
+ChineseFood delivered.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+Pizza from Kyle is being delivered to Sam.
+You asked Sam if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Pizza will be added to your sample bag.
+Pizza added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+Cake from Nick is being delivered to Dan.
+You asked Dan if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Cake will be added to your sample bag.
+Cake added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 1.
+Bag is of weight 15.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 3.
+Sample bag is of weight 32.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 5
+
+***
+Cake was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 5
+
+***
+Pizza was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 12.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 5
+
+***
+Pancake was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 1.
+Bag is of weight 15.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 1
+
+***
+Enter item: Cheesecake
+Enter weight: 20
+Enter number: 10
+Enter sender: Steve
+Enter recipient: Bill
+Added: Cheesecake, 10, 20.0, Steve, Bill.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 35.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+Wings from Hunter is being delivered to Frank.
+You asked Frank if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+n
+You cannot keep the item.
+Wings delivered.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 7
+
+***
+Enter express item: Salad
+Enter weight: 5
+Enter number: 5
+Enter sender: Professor
+Enter recipient: Student
+Express item added: Salad, 5, 5.0, Professor, Student.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 25.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+Salad from Professor is being delivered to Student.
+You asked Student if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Salad will be added to your sample bag.
+Salad added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 2
+
+***
+Cheesecake from Steve is being delivered to Bill.
+You asked Bill if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+y
+You can keep one of the items!
+Cheesecake will be added to your sample bag.
+Cheesecake added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 2.
+Sample bag is of weight 25.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+7. Pick up an express order.
+Make a menu selection now: 0
+
+***
+Done.
+

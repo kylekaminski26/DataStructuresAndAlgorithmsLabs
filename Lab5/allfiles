@@ -1,0 +1,857 @@
+::::::::::::::
+StackSLS
+::::::::::::::
+public class StackSLS<T> implements StackInterface<T> {
+	private Node<T> head;
+
+	public StackSLS() {
+		head = null;
+	}
+
+	public boolean isEmpty() { // checks if the Node is empty.
+		if (head == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public int size() { // Returns the size of the Node.
+		int size = 0;
+		Node<T> n = head;
+		while (n != null) {
+			size++;
+			n = n.getNext();
+		}
+		return size;
+
+	}
+
+	private Node<T> find(int index) { // Finds a specific index in the node.
+		Node<T> current = head;
+		for (int skip = 0; skip < index; skip++) {
+			current = current.getNext();
+		}
+		return current;
+	}
+
+	public Object get(int index) throws StackException { // Returns an index in the Node.
+		if (index >= 0 && index < size()) {
+			Node<T> current = find(index);
+			Object data = current.getItem();
+			return data;
+		} else {
+			throw new StackException("Exception on get().");
+		}
+	}
+
+	public void removeAll() { // Clears the node.
+		head = null;
+	}
+
+	@Override
+	public String toString() { // Overrides toString. Prints the Node.
+		String result = "";
+		Node<T> current = head;
+		while (current != null) {
+			result += current.getItem() + ", ";
+			current = current.getNext();
+		}
+		return "Size:  " + size() + ", Contents: " + result;
+	}
+
+	@Override
+	public void popAll() { //Clears the node.
+		head = null;
+	}
+
+	@Override
+	public void push(Object newItem) throws StackException { //Pushes new index on the Node.
+		if (size() == 0) {
+			Node<T> newNode = new Node<T>(newItem, head);
+			head = newNode;
+		} else {
+			Node<T> previous = find(size() - 1);
+			Node<T> newNode = new Node<T>(newItem, previous.getNext());
+			previous.setNext(newNode);
+		}
+	}
+
+	@Override
+	public T pop() throws StackException { // Pops new item on Node.
+		if (isEmpty())
+			throw new StackException("Stack underflow");
+		Node<T> top = find(size() - 1);
+		System.out.println(top.getItem());
+		top = null;
+		return (T) top;
+	}
+
+	@Override
+	public T peek() throws StackException { // Returns the top of the Node.
+		Node<T> top = find(size() - 1);
+		return (T) top.getItem();
+	}
+}
+::::::::::::::
+Delivery
+::::::::::::::
+import java.util.InputMismatchException;
+import java.util.Random;
+
+/*
+ * Purpose: Data Structure and Algorithms Lab 5 Problem 2
+ * Status: Complete and thoroughly tested.
+ * Last update: 10/08/18
+ * Submitted:  10/08/18
+ * @author: Kyle Kaminski
+ * @version: 1.0
+ */
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Delivery {
+	public static void main(String[] args) {
+		Stack<String> item = new Stack<String>();
+		Stack<Float> itemWeight = new Stack<Float>();
+		Stack<Integer> number = new Stack<Integer>();
+		Stack<String> sender = new Stack<String>();
+		Stack<String> recipient = new Stack<String>();
+		Stack<String> sample = new Stack<String>();
+		Stack<Float> sampleWeight = new Stack<Float>();
+		Scanner sc = new Scanner(System.in);
+		boolean endProgram = false;
+		int choice;
+
+		do {
+			try {
+				System.out.println("");
+				System.out.println("************************************************************");
+				System.out.println("0. Exit.");
+				System.out.println("1. Pick up an order.");
+				System.out.println("2. Drop off an order.");
+				System.out.println("3. Display number of packages and weight of bag.");
+				System.out.println("4. Display number of items and weight of the bag of samples.");
+				System.out.println("5. Enjoy an item from the bag of samples.");
+				System.out.println("6. Empty the bag of samples.");
+				System.out.print("Make a menu selection now: ");
+				choice = sc.nextInt();
+
+				System.out.println("");
+				System.out.println("***");
+				switch (choice) {
+				case 0: // Exit.
+					System.out.println("Done.");
+					sc.close();
+					System.exit(0);
+					break;
+				case 1: // Pick up an order.
+					String itemAdd;
+					float weightAdd;
+					int numberAdd;
+					String senderAdd;
+					String recipientAdd;
+
+					System.out.print("Enter item: ");
+					itemAdd = sc.next();
+					item.push(itemAdd);
+
+					System.out.print("Enter weight: ");
+					weightAdd = sc.nextFloat();
+					itemWeight.push(weightAdd);
+
+					System.out.print("Enter number: ");
+					numberAdd = sc.nextInt();
+					number.push(numberAdd);
+
+					System.out.print("Enter sender: ");
+					senderAdd = sc.next();
+					sender.push(senderAdd);
+
+					System.out.print("Enter recipient: ");
+					recipientAdd = sc.next();
+					recipient.push(recipientAdd);
+
+					System.out.println("Added: " + item.peek() + ", " + number.peek() + ", " + itemWeight.peek() + ", "
+							+ sender.peek() + ", " + recipient.peek() + ".");
+					break;
+
+				case 2: // Drop off an order.
+					if (item.size() == 0) {
+						System.out.println("Your bag is empty!");
+						break;
+					}
+
+					System.out.println(item.peek() + " from " + sender.peek() + " is being delivered to "
+							+ recipient.peek() + ".");
+					System.out.println("You asked " + recipient.peek() + " if you can keep one of the items.");
+					System.out.println("Can you keep one of the item? Type Y or N: ");
+					String answer = sc.next();
+
+					if (answer.equals("Y") || answer.equals("y")) {
+						System.out.println("You can keep one of the items!");
+						System.out.println(item.peek() + " will be added to your sample bag.");
+						sample.push(item.pop());
+						sampleWeight.push(itemWeight.pop());
+						number.pop();
+						sender.pop();
+						recipient.pop();
+						System.out.println(sample.peek() + " added to sample bag.");
+					} else {
+						System.out.println("You cannot keep the item.");
+						System.out.println(item.pop() + " delivered.");
+						itemWeight.pop();
+						number.pop();
+						sender.pop();
+						recipient.pop();
+					}
+					break;
+
+				case 3: // Display number of packages and weight of bag.
+					System.out.println("Bag is of size " + item.size() + ".");
+
+					float itemWeightSum = 0;
+					for (float i : itemWeight) {
+						itemWeightSum += i;
+					}
+					System.out.println("Bag is of weight " + itemWeightSum + ".");
+					break;
+
+				case 4: // Display number of items and weight of the bag of samples.
+					System.out.println("Sample bag is of size " + sample.size() + ".");
+
+					float sampleWeightSum = 0;
+					for (float i : sampleWeight) {
+						sampleWeightSum += i;
+					}
+					System.out.println("Sample bag is of weight " + sampleWeightSum + ".");
+					break;
+
+				case 5: // Enjoy an item from the bag of samples.
+					if (sample.size() == 0) {
+						System.out.println("Your bag is empty!");
+						break;
+
+					}
+					System.out.println(sample.pop() + " was enjoyed.");
+					sampleWeight.pop();
+					break;
+				case 6: // Empty the bag of samples.
+					while (sample.size() > 0) {
+						sample.pop();
+					}
+					System.out.println("Sample bag emptied.");
+					break;
+
+				default:
+					System.out.println("Please enter a valid input.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Please restart and enter a valid input.");
+				sc.close();
+				endProgram = true;
+			}
+		} while (endProgram == false);
+	}
+}a
+::::::::::::::
+SampleRuns
+::::::::::::::
+*****Delivery*****
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 0.
+Bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+Your bag is empty!
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: apple
+Enter weight: 0.6
+Enter number: 10
+Enter sender: Pikachu
+Enter recipient: Mew
+Added: apple, 10, 0.6, Pikachu, Mew.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 1.
+Bag is of weight 0.6.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: orange
+Enter weight: 0.85
+Enter number: 14
+Enter sender: Bulbasaur
+Enter recipient: Abra
+Added: orange, 14, 0.85, Bulbasaur, Abra.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: pear
+Enter weight: 0.9
+Enter number: 7
+Enter sender: Abra
+Enter recipient: Kadabra
+Added: pear, 7, 0.9, Abra, Kadabra.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 2.35.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 0.
+Sample bag is of weight 0.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+pear from Abra is being delivered to Kadabra.
+You asked Kadabra if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+Y
+You can keep one of the items!
+pear will be added to your sample bag.
+pear added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 1.45.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: cookie
+Enter weight: 0.1
+Enter number: 50
+Enter sender: Charizard
+Enter recipient: Squirtle
+Added: cookie, 50, 0.1, Charizard, Squirtle.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: banana
+Enter weight: 0.5
+Enter number: 22
+Enter sender: Clefairy
+Enter recipient: Vulpix
+Added: banana, 22, 0.5, Clefairy, Vulpix.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 0.9.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 4.
+Bag is of weight 2.0500002.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+banana from Clefairy is being delivered to Vulpix.
+You asked Vulpix if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+N
+You cannot keep the item.
+banana delivered.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 0.9.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 1.5500001.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+cookie from Charizard is being delivered to Squirtle.
+You asked Squirtle if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+Y
+You can keep one of the items!
+cookie will be added to your sample bag.
+cookie added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 2.
+Sample bag is of weight 1.0.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 1.45.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+cookie was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 2.
+Bag is of weight 1.45.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 0.9.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 6
+
+***
+Sample bag emptied.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: granola
+Enter weight: 0.5
+Enter number: 25
+Enter sender: Jigglypuff
+Enter recipient: Meowth
+Added: granola, 25, 0.5, Jigglypuff, Meowth.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 1
+
+***
+Enter item: watermellon
+Enter weight: 3.7
+Enter number: 3
+Enter sender: Slowpoke
+Enter recipient: Slowbro
+Added: watermellon, 3, 3.7, Slowpoke, Slowbro.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 2
+
+***
+watermellon from Slowpoke is being delivered to Slowbro.
+You asked Slowbro if you can keep one of the items.
+Can you keep one of the item? Type Y or N: 
+Y
+You can keep one of the items!
+watermellon will be added to your sample bag.
+watermellon added to sample bag.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 3
+
+***
+Bag is of size 3.
+Bag is of weight 1.95.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 4
+
+***
+Sample bag is of size 1.
+Sample bag is of weight 4.6.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 5
+
+***
+watermellon was enjoyed.
+
+************************************************************
+0. Exit.
+1. Pick up an order.
+2. Drop off an order.
+3. Display number of packages and weight of bag.
+4. Display number of items and weight of the bag of samples.
+5. Enjoy an item from the bag of samples.
+6. Empty the bag of samples.
+Make a menu selection now: 0
+
+***
+Done.
+::::::::::::::
+ListArrayBased
+::::::::::::::
+public class ListArrayBased<T> implements ListInterface<T> {
+	public T[] items;
+	public int numItems;
+
+	public ListArrayBased() { // Constructor.
+		items = (T[]) new Object[3];
+		numItems = 0;
+	}
+
+	public boolean isEmpty() { // Returns if the List array is empty.
+		return (numItems == 0);
+	}
+
+	public int size() { // Returns the size of the array.
+		return numItems;
+	}
+
+	public void removeAll() { // Removes all of the elements.
+		items = (T[]) new Object[3];
+		numItems = 0;
+	}
+
+	public void add(int i, T item) throws ListIndexOutOfBoundsException {
+		// Adds an item to the list array.
+		if (i >= 0 || i <= numItems) {
+			for (int position = numItems - 1; position >= i; position--) {
+				items[position + 1] = items[position];
+			}
+			items[i] = (T) item;
+			numItems++;
+		} else {
+			throw new ListIndexOutOfBoundsException("Exception on add().");
+		}
+	}
+
+	public Object get(int i) throws ListIndexOutOfBoundsException {
+		//Gets an item from the list array
+		if (i >= 0 && i < numItems) {
+			return items[i];
+		} else {
+			throw new ListIndexOutOfBoundsException("Exception on get().");
+		}
+	}
+
+	public void remove(int i) throws ListIndexOutOfBoundsException {
+		//Removes item from list array. Code is similar to add().
+		if (i >= 0 && i < numItems) {
+			for (int position = i + 1; position < numItems; position++) {
+				items[position - 1] = items[position];
+			}
+			numItems--;
+			items[numItems] = null;
+		} else {
+			throw new ListIndexOutOfBoundsException("Exception on remove().");
+		}
+	}
+}
+::::::::::::::
+Conclusions
+::::::::::::::
+During this lab, I learned how to properly use stacks.
+At first, I did not understand what the phrase First In, Last Out meant, but now I can properly use it to my advantage in my code.
+I will use stacks in future programs I write because it makes more sense to me now, and in some way they provide more of an advantage than array lists.

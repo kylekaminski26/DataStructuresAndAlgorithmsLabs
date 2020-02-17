@@ -1,0 +1,114 @@
+/*
+ * Purpose: Data Structure and Algorithms Lab 6 Problem 2
+ * Status: Complete and thoroughly tested.
+ * Last update: 10/11/18
+ * Submitted:  10/11/18
+ * @author: Kyle Kaminski
+ * @version: 1.0
+ */
+
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.Deque;
+import java.util.InputMismatchException;
+import java.util.LinkedList;
+
+public class DEQ implements Queue {
+	public static void main(String[] args) {
+		Queue <String> queue = new LinkedList<String>();
+		Scanner sc = new Scanner(System.in);
+		boolean endProgram = false;
+		int choice;
+
+		do {
+			try {
+				System.out.println("");
+				System.out.println("************************************************************");
+				System.out.println("1. Insert item at back of DEQ.");
+				System.out.println("2. Insert item at front of DEQ.");
+				System.out.println("3. Remove item from front of DEQ.");
+				System.out.println("4. Remove item from back of DEQ.");
+				System.out.println("5. Display front item of DEQ.");
+				System.out.println("6. Display last item of DEQ.");
+				System.out.println("7. Clear DEQ.");
+				System.out.println("8. Display content of DEQ.");
+				System.out.println("9. Exit.");
+				System.out.print("Make a menu selection now: ");
+				choice = sc.nextInt();
+
+				System.out.println("");
+				System.out.println("***");
+				switch (choice) {
+				case 1: // Insert item at back of DEQ.
+					System.out.print("Enter element: ");
+					String elementBack = sc.next();
+					deque.offerLast(elementBack);
+					System.out.println(deque.getLast() + " added to back of DEQ.");
+					break;
+				case 2: // Insert item at front of DEQ.
+					System.out.print("Enter element: ");
+					String elementFront = sc.next();
+					deque.offerFirst(elementFront);
+					System.out.println(deque.getFirst() + " added to front of DEQ.");
+					break;
+				case 3: // Remove item from front of DEQ.
+					if (deque.size() == 0) {
+						System.out.println("The DEQ is empty.");
+					} else {
+						System.out.println(deque.removeFirst() + " removed from front of DEQ.");
+					}
+					break;
+				case 4: // Remove item from back of DEQ.
+					if (deque.size() == 0) {
+						System.out.println("The DEQ is empty.");
+					} else {
+						System.out.println(deque.removeLast() + " removed from back of DEQ.");
+					}
+					break;
+				case 5: // Display front item of DEQ.
+					if (deque.size() == 0) {
+						System.out.println("The DEQ is empty.");
+					} else {
+						System.out.println("The front item of the DEQ is " + deque.getFirst());
+					}
+					break;
+				case 6: // Display last item of DEQ.
+					if (deque.size() == 0) {
+						System.out.println("The DEQ is empty.");
+					} else {
+						System.out.println("The last item of the DEQ is " + deque.getLast());
+					}
+					break;
+				case 7: // Clear DEQ.
+					if (deque.size() == 0) {
+						System.out.println("The DEQ is already empty.");
+					} else {
+						while (deque.size() != 0) {
+							deque.remove();
+						}
+						System.out.println("The DEQ has been cleared.");
+					}
+					break;
+				case 8: // Display content of queue.
+					if (deque.size() == 0) {
+						System.out.println("The DEQ is empty.");
+					} else {
+						System.out.println(deque);
+					}
+					break;
+				case 9: // Exit.
+					System.out.println("Done.");
+					sc.close();
+					System.exit(0);
+					break;
+				default:
+					System.out.println("Please enter a valid input.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Please restart and enter a valid input.");
+				sc.close();
+				endProgram = true;
+			}
+		} while (endProgram == false);
+	}
+}

@@ -1,0 +1,387 @@
+*****Driver*****
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list is empty, nothing to display.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+There is nothing in this list to reverse!
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Pikachu
+Enter position to insert item in: 0
+Pikachu inserted at position 0.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 1 has the following item: 
+(0)Pikachu
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Bulbasaur
+Enter position to insert item in: 0
+Bulbasaur inserted at position 0.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 2 has the following items: 
+Pikachu 
+Bulbasaur 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Charizard
+Enter position to insert item in: 2
+Charizard inserted at position 2.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 3 has the following items: 
+Pikachu 
+Bulbasaur 
+Charizard 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Charizard
+Enter position to insert item in: 2
+Charizard inserted at position 2.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+The list has been reversed.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Charizard 
+Bulbasaur 
+Bulbasaur 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+The list has been reversed.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Pikachu 
+Bulbasaur 
+Bulbasaur 
+Charizard 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Mew
+Enter position to insert item in: 1
+Mew inserted at position 1.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Abra
+Enter position to insert item in: 3
+Abra inserted at position 3.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 6 has the following items: 
+Pikachu 
+Abra 
+Pikachu 
+Abra 
+Pikachu 
+Abra 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 2
+Enter position to remove item from: 5
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 2
+Enter position to remove item from: 3
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Pikachu 
+Pikachu 
+Pikachu 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 2
+Enter position to remove item from: 0
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 3 has the following items: 
+Pikachu 
+Pikachu 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Kadabra
+Enter position to insert item in: 1
+Kadabra inserted at position 1.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+The list has been reversed.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Kadabra 
+Pikachu 
+Kadabra 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 3
+Enter position to get from: 2
+Kadabra was at position 2
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 3
+Enter position to get from: 0
+Kadabra was at position 0
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 3
+Enter position to get from: 3
+Pikachu was at position 3
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 4
+List has been cleared.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list is empty, nothing to display.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 0
+Exiting Program...Good Bye.
+

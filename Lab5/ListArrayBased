@@ -1,0 +1,57 @@
+public class ListArrayBased<T> implements ListInterface<T> {
+	public T[] items;
+	public int numItems;
+
+	public ListArrayBased() { // Constructor.
+		items = (T[]) new Object[3];
+		numItems = 0;
+	}
+
+	public boolean isEmpty() { // Returns if the List array is empty.
+		return (numItems == 0);
+	}
+
+	public int size() { // Returns the size of the array.
+		return numItems;
+	}
+
+	public void removeAll() { // Removes all of the elements.
+		items = (T[]) new Object[3];
+		numItems = 0;
+	}
+
+	public void add(int i, T item) throws ListIndexOutOfBoundsException {
+		// Adds an item to the list array.
+		if (i >= 0 || i <= numItems) {
+			for (int position = numItems - 1; position >= i; position--) {
+				items[position + 1] = items[position];
+			}
+			items[i] = (T) item;
+			numItems++;
+		} else {
+			throw new ListIndexOutOfBoundsException("Exception on add().");
+		}
+	}
+
+	public Object get(int i) throws ListIndexOutOfBoundsException {
+		//Gets an item from the list array
+		if (i >= 0 && i < numItems) {
+			return items[i];
+		} else {
+			throw new ListIndexOutOfBoundsException("Exception on get().");
+		}
+	}
+
+	public void remove(int i) throws ListIndexOutOfBoundsException {
+		//Removes item from list array. Code is similar to add().
+		if (i >= 0 && i < numItems) {
+			for (int position = i + 1; position < numItems; position++) {
+				items[position - 1] = items[position];
+			}
+			numItems--;
+			items[numItems] = null;
+		} else {
+			throw new ListIndexOutOfBoundsException("Exception on remove().");
+		}
+	}
+}

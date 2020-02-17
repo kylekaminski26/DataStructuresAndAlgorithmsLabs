@@ -1,0 +1,16 @@
+*****Means.java*****
+Enter number of pairs, or type '0' for sample run: 
+0
+Sample values have been entered.
+
+Here are the numbers you entered: 
+[3.0, 80.0, 24.0, 9.0, 32.0]
+
+Here are the weights you entered: 
+[0.22, 0.41, 0.05, 0.11, 0.21]
+
+
+Weighted Arithmetic Mean is: 42.37
+Weighted Arithmetic Mean rounded is: 42.37
+Simple Mean of the numbers is: 29.6
+

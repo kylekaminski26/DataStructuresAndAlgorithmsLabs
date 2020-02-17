@@ -1,0 +1,578 @@
+::::::::::::::
+MyHelloClass.java
+::::::::::::::
+/*
+ * Purpose: Data Structure and Algorithms Lab 1 Problem 6
+ * Status: Complete and thoroughly tested. Handles Input Exceptions as well.
+ * Last update: 9/09/18
+ * Submitted:  9/10/18
+ * Comment: This class will ask for the amount of names, and then each individual name.
+ * It will print out those names, in a grammatically correct sentence, saying hello to the class.
+ * @author: Kyle Kaminski
+ * @version: 2018.09.09
+ */
+
+import java.util.Scanner;//Imports the Scanner class.
+import java.util.ArrayList;//Imports the ArrayList class.
+import java.util.InputMismatchException;//Imports the InputMismatchException class.
+
+public class MyHelloClass {// Name of the class.
+    public static void main(String[] args) {// Driver of the class.
+        System.out.println("*****MyHelloClass*****");// Custom header for my class.
+        try {// Try block. Will catch exceptions if the user inputs a char, string, decimal, or negative number as the amountPeople value.
+            Scanner sc = new Scanner(System.in);// Creates a scanner to read user input.
+            String firstName = "null";// Initializes the firstName variable. Sets its initial value to "null" (as a String). Will be overridden.
+            String secondName = "null";// Initializes the secondName variable. Sets its initial value to "null" (as a String). Will be overridden.
+            System.out.print("How many people want to say hello to the class? ");// Asks the user how many people want to say hello to the class.
+            int n = sc.nextInt();// Captures the user's input as an integer. If a char, string, decimal, or negative number are inputed, the exception is handled and a statement is printed to the user.
+            ArrayList<String> namesList = new ArrayList<String>(n);// Creates a namesList Array list. This list captures all of the names that will be inputed later in the code by the user.
+            ArrayList<String> singleNameList = new ArrayList<String>();// Creates a singleNameList Array list. This list captures the name that will be inputed later in the code, if the amountPeople value is 1.
+
+            if (n < 0) {// If statement for if the amountPeople value is equal to 0.
+                sc.close();// Closes the scanner object so there is no resource leak.
+                throw new IllegalArgumentException("That was not a valid input.");// Throws the exception for if an illegal input was given by the user.
+            } // Closes the if statement.
+
+            while (n > 2) {// While loop for if the amountPeople value is greater than 2.
+                System.out.print("Enter the name of Person " + n + ": ");// Asks the user to input the name of that person.
+                firstName = sc.next();// Captures the user's input as the firstName value.
+                n--;// Lowers the value of the amountPeople value by 1.
+                namesList.add(firstName);// Adds the firstName value to the namesList Array list.
+            } // Closes the while loop.
+
+            if (n == 1) {// If statement for if the amountPeople value is equal to 1.
+                System.out.print("Enter the name of Person " + n + ": ");// Asks the user for the name of that person.
+                firstName = sc.next();// Captures the user's input as the firstName value.
+                singleNameList.add(firstName);// Adds the firstName value to the singleNameList Array List.
+            } else if (n >= 1 && n <= 2) {// If statement for if the amountPeople value is greater than or equal to 1, and less than or equal to 2.
+                System.out.print("Enter the name of Person " + n + ": ");// Asks the user for the name of that person.
+                secondName = sc.next();// Captures the user's input as the secondName value.
+                namesList.add(secondName);// Adds the secondName value to the namesList Array List.
+                n--;// Lowers the value of amountPeople by 1.
+                System.out.print("Enter the name of Person " + n + ": ");// Asks the user for the name of that person.
+                firstName = sc.next();// Captures the user's input as the firstName value.
+                singleNameList.add(firstName);// Adds the firstName value to the singleNameList Array List.
+                n++;// Raises the value of amountPeople by 1.
+            } else if (n == 0) {// If statement for if amountPeople is equal to 0.
+                System.out.println("No one wanted to say hello to the class...");// Prints a message to the console.
+                System.out.println("The program has ended. Please run the program and try again.");// Prints a message to the console.
+                System.exit(0);// Terminates the program.
+            } // Closes the else if statement.
+
+            for (String nextName : namesList) {// For loop for if there are values in the namesList Array list.
+                System.out.print(nextName + ", ");// Prints the name, followed by ", ". This loop keeps going until there are no more values to print (which means that the for loop becomes false).
+            }//Closes the for loop.
+
+            for (String singleName : singleNameList) {// For loop for if there are values in the singleNameList Array list.
+                if (n == 1) {// If statement for if the amountPeople value is equal to 1
+                    System.out.print(firstName);// Prints the name to the console.
+                } else {// Else statement if the previous if statement is false.
+                    System.out.print("and " + firstName);// Prints "and " and the firstName to the console.
+                } // Closes the else statement.
+            } // Closes the for statement.
+
+            if (n == 1) {// If statement for if the amountPeople value is equal to 1.
+                System.out.println(" says Hello Class!!!");// Prints a message to the console.
+                sc.close();// Closes the scanner object.
+            } else {// Else statement for if the above if statement is false.
+                System.out.println(" say Hello Class!!!");// Prints a message to the console.
+            } // Closes the else statement.
+            sc.close();// Closes the scanner object.
+
+        } catch (IllegalArgumentException | InputMismatchException e) { // Catch block that catches illegal arguments (negative numbers and decimals), and input mismatches (chars and strings).
+            System.out.println("That was not a valid input.");// Prints a message to the console, if there was an exception that was handled.
+        } // Closes catch block.
+    }// Closes Driver.
+}// Closes class.
+::::::::::::::
+MyHelloClass.output
+::::::::::::::
+*****MyHelloClass*****
+How many people want to say hello to the class? a
+That was not a valid input.
+
+*****MyHelloClass*****
+How many people want to say hello to the class? -1
+That was not a valid input.
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 0
+No one wanted to say hello to the class...
+The program has ended. Please run the program and try again.
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 1
+Enter the name of Person 1: Kyle
+Kyle says Hello Class!!!
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 2
+Enter the name of Person 2: Kyle
+Enter the name of Person 1: Friend
+Kyle, and Friend say Hello Class!!!
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 3
+Enter the name of Person 3: Kyle
+Enter the name of Person 2: Friend
+Enter the name of Person 1: Pal
+Kyle, Friend, and Pal say Hello Class!!!
+
+*****MyHelloClass*****
+How many people want to say hello to the class? 4
+Enter the name of Person 4: Kyle
+Enter the name of Person 3: Pal
+Enter the name of Person 2: Friend
+Enter the name of Person 1: Amigo
+Kyle, Pal, Friend, and Amigo say Hello Class!!!
+
+::::::::::::::
+Means.java
+::::::::::::::
+/*
+ * Purpose: Data Structure and Algorithms Lab 1 Problem 8
+ * Status: Complete and thoroughly tested
+ * Last update: 9/09/18
+ * Submitted:  9/10/18
+ * Comment: Test suite and sample run attached
+ * @author: Kyle Kaminski
+ * @version: 1.0
+ */
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.text.DecimalFormat;
+//Imported all of the necessary classes.
+
+public class Means {//Name of the class.
+
+    public static void main(String args[]) throws FileNotFoundException {//Driver, throws File Not Found Exception.
+        try {//Try block for if the user inputs a bad input for their number of pairs.
+            System.out.println("*****Means.java*****");//Custom Header.
+            Scanner sc = new Scanner(System.in);//Scanner object to capture user input.
+            System.out.println("Enter number of pairs: ");//Asks the user for number of pairs.
+            int n = sc.nextInt();//Captures user input as n variable.
+
+            if (n < 0) {//If the user enters a number lower than 0.
+                System.out.println("That was not a positive number. Please rerun the program and try again.");//Show error message.
+                System.exit(0);//Terminate the program.
+            }
+
+            ArrayList<Double> numbers = new ArrayList<Double>();
+            ArrayList<Double> weights = new ArrayList<Double>();
+            ArrayList<Double> simpleMean = new ArrayList<Double>();
+            //Array lists that store the user's numbers and weights. Also captures the user's numbers to calculate simple mean.
+
+            while (n > 0) {//While loop to ask the user for the number and the respective weight.
+                System.out.println("Enter number " + n + ": ");
+                double number = sc.nextInt();//Captures user input.
+                numbers.add(number);//Adds user input to the numbers array list.
+                simpleMean.add(number);//Adds user input to the simple mean array list.
+                System.out.println("Number " + n + " added.");//Confirmation message.
+                System.out.println("Enter weight " + n + ": ");
+                double weight = sc.nextDouble();//Captures user input.
+                weights.add(weight);//Adds user input to the weights array list.
+                System.out.println("Weight " + n + " added.");//Confirmation message.
+                n--;//Decreases n by 1. While loop repeats until n is 0 (and all numbers and weights are captures).
+            }
+
+            System.out.println();
+            System.out.println("Here are the numbers you entered: ");
+            System.out.println(numbers);
+            System.out.println();
+            System.out.println("Here are the weights you entered: ");
+            System.out.println(weights);
+            System.out.println();
+            //Confirmation to the user on what they entered.
+
+            ArrayList<Double> sumOfProducts = new ArrayList<Double>();
+            //Creates the sum of Products arraylist. Stores the sum of a number multiplied by its weight.
+
+            double sumOfWeightsArray = 0;
+            for (int i = 0; i < weights.size(); i++) {
+                sumOfWeightsArray += weights.get(i);
+            }
+            //This for loop adds all of the weight values in the weights array and stores them as the sumOfWeightsArray variable.
+
+            while (!numbers.isEmpty()) {
+                double numWgtProduct = numbers.get(0) * weights.get(0);
+                sumOfProducts.add(numWgtProduct);
+                numbers.remove(0);
+                weights.remove(0);
+            }
+            //While loop for when numbers array list has values in it.
+
+            double sumOfSumOfProducts = 0;
+            for (int i = 0; i < sumOfProducts.size(); i++) {
+                sumOfSumOfProducts += sumOfProducts.get(i);
+            }
+            //This for loop adds all of the values in the sumOfProducts array and stores them as the sumOfSumOfProducts variable.
+
+            double sumOfSimpleMean = 0;
+            for (int i = 0; i < simpleMean.size(); i++) {
+                sumOfSimpleMean += simpleMean.get(i);
+            }
+            //This for loop adds all of the values in the simpleMean array and stores them as the sumOfSimpleMean variable.
+
+            double simpleMeanFinal = sumOfSimpleMean / simpleMean.size();//Divides the sum of the numbers by the amount of numbers.
+
+            DecimalFormat df2 = new DecimalFormat(".##");//Cleaner format for the arithmetic mean.
+            double weightedArithmeticMean = sumOfSumOfProducts / sumOfWeightsArray;//Final calculation for the arithmetic mean.
+            System.out.println();
+            System.out.println("Weighted Arithmetic Mean is: " + weightedArithmeticMean);
+            System.out.println("Weighted Arithmetic Mean rounded is: " + df2.format(weightedArithmeticMean));
+            System.out.println("Simple Mean of the numbers is: " + df2.format(simpleMeanFinal));
+        } catch (IllegalArgumentException | InputMismatchException e) {
+            // Catch block that catches illegal arguments (negative numbers and decimals), and input mismatches (chars and strings).
+            System.out.println("That was not a positive number. Please rerun the program and try again.");
+            System.exit(0);//Terminates the program.
+        }
+    }
+}
+::::::::::::::
+Means.output
+::::::::::::::
+*****Means.java*****
+Enter number of pairs, or type '0' for sample run: 
+0
+Sample values have been entered.
+
+Here are the numbers you entered: 
+[3.0, 80.0, 24.0, 9.0, 32.0]
+
+Here are the weights you entered: 
+[0.22, 0.41, 0.05, 0.11, 0.21]
+
+
+Weighted Arithmetic Mean is: 42.37
+Weighted Arithmetic Mean rounded is: 42.37
+Simple Mean of the numbers is: 29.6
+
+::::::::::::::
+ArrayListSwitch.java
+::::::::::::::
+/*
+ * Purpose: Data Structure and Algorithms Lab 1 Problem 9
+ * Status: Complete and thoroughly tested.
+ * Last update: 9/10/18
+ * Submitted:  9/10/18
+ * Comment: This class lets the user process an ArrayList in many different ways.
+ * @author: Kyle Kaminski
+ * @version: 2018.09.09
+ */
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+//Imports the necessary classes.
+
+public class ArrayListSwitch {
+    public static void main(String[] args) {// Driver
+        System.out.println("*****ArrayList.java*****");
+        switchStatement();// Redirects to the switch statement method.
+    }
+
+    static ArrayList<String> data = new ArrayList<String>();// Creates data array list.
+    static Scanner sc = new Scanner(System.in); // Creates scanner object.
+
+    public static void switchStatement() {// Directs the user to different methods.
+        System.out.println("");
+        System.out.println("**********");
+        System.out.println("Enter 1 to add to the Array List.");
+        System.out.println("Enter 2 to clear the Array List.");
+        System.out.println("Enter 3 to see what the Array List contains.");
+        System.out.println("Enter 4 to get a specific element.");
+        System.out.println("Enter 5 to see if the Array List is empty.");
+        System.out.println("Enter 6 to remove from the Array List.");
+        System.out.println("Enter 7 to see the size of the ArrayList.");
+        System.out.println("Enter 8 to display the Array List.");
+        System.out.println("Enter 9 to reverse display the Array List.");
+	System.out.println("Enter 10 to test if the collection is a palindrome.");
+        System.out.println("Enter 11 to Quit.");
+
+        int choice = sc.nextInt();// User's input.
+        switch (choice) {// Switch statement that directs the user to a method.
+        case 1:
+            add();
+            break;
+        case 2:
+            clear();
+            break;
+        case 3:
+            contains();
+            break;
+        case 4:
+            get();
+            break;
+        case 5:
+            isEmpty();
+            break;
+        case 6:
+            remove();
+            break;
+        case 7:
+            size();
+            break;
+        case 8:
+            displayNameOfProcessingMethod();
+            break;
+        case 9:
+            displayReverseNameOfProcessingMethod();
+            break;
+	case 10:
+	    testIfPalindromeNameOfProcessingMethod();
+        case 11:
+            System.exit(0);
+            break;
+        default:
+            switchStatement();
+            break;
+        }
+    }
+
+    private static void add() {
+        System.out.println("What character do you want to add?");
+        String addString = sc.next();
+        data.add(addString);
+        System.out.println(addString + " was added to the end of the collection.");
+        switchStatement();
+    }
+    // This method adds to the end of the array list.
+
+    private static void clear() {
+        data.clear();
+        System.out.println("ArrayList has been cleared.");
+        switchStatement();
+    }
+    // This method clears the array list.
+
+    private static void contains() {
+        System.out.println("Search for which character?");
+        String search = sc.next();
+        if (data.contains(search)) {
+            System.out.println("ArrayList has character " + search);
+        } else {
+            System.out.println("ArrayList does not have character " + search);
+        }
+        switchStatement();
+    }
+    // This method searches for a character in the array list.
+
+    private static void get() {
+        System.out.println("Get the character from which position (0 is the start)?");
+        int search = sc.nextInt();
+        System.out.println(data.get(search) + " is in position " + search);
+        switchStatement();
+    }
+    // This method gets a character from a specific position.
+
+    private static void isEmpty() {
+        if (!data.isEmpty()) {
+            System.out.println("ArrayList is not empty.");
+        } else {
+            System.out.println("ArrayList is empty.");
+        }
+        switchStatement();
+    }// This method checks if the array list is empty
+
+    private static void remove() {
+        System.out.println("Remove character from which position?");
+        int remove = sc.nextInt();
+        System.out.println(data.remove(remove) + " has been removed from position " + remove);
+        switchStatement();
+    }// This method removes a character from a position.
+
+    private static void size() {
+        System.out.println("ArrayList has " + data.size() + " elements in it.");
+        switchStatement();
+    }// This method checks the size of the array list.
+
+    public static void displayNameOfProcessingMethod() {
+        System.out.println("Here is the content of your Collection: " + data);
+        switchStatement();
+    }// This method displays the array list.
+
+    private static void displayReverseNameOfProcessingMethod() {
+       	Collections.reverse(data);
+	System.out.println("Here is your reverse ArrayList: " + data);
+        Collections.reverse(data);
+        switchStatement();
+    }// This method displays the reverse of the array list.
+
+    private static boolean  testIfPalindromeNameOfProcessingMethod() {
+	int i = data.size();
+	while (i > 0) {
+		ArrayList<String> dataRev = new ArrayList<String>();
+		dataRev.add(data.get(i));
+		i--;
+	}
+
+	Collections.reverse(dataRev);
+
+	int j = 0;
+	while (data.get(j) == dataRev.get(j) && j <= data.size()) {
+		return true;
+		j++;
+	}
+    }
+}
+::::::::::::::
+ArrayListSwitch.output
+::::::::::::::
+*****ArrayList.java*****
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+1
+What character do you want to add?
+a
+a was added to the end of the collection.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+2
+ArrayList has been cleared.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+1
+What character do you want to add?
+a
+a was added to the end of the collection.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+3
+Search for which character?
+a
+ArrayList has character a
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+4
+Get the character from which position (0 is the start)?
+0
+a is in position 0
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+5
+ArrayList is not empty.
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+8
+Here is your ArrayList: [a]
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+9
+Here is your reverse ArrayList: [a]
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+6
+Remove character from which position?
+0
+a has been removed from position 0
+
+**********
+Enter 1 to add to the Array List.
+Enter 2 to clear the Array List.
+Enter 3 to see what the Array List contains.
+Enter 4 to get a specific element.
+Enter 5 to see if the Array List is empty.
+Enter 6 to remove from the Array List.
+Enter 7 to see the size of the ArrayList.
+Enter 8 to display the Array List.
+Enter 9 to reverse display the Array List.
+Enter 10 to Quit.
+10
+
+::::::::::::::
+Lab1Conclusions.txt
+::::::::::::::
+When working on this lab, I learned how to properly use Arraylists. In the past, I did not use them other than on exams. However, not only did I use them for this Lab, but I also learned how to properly use them on my own. This lab was a big help in teaching me how to use ArrayLists.

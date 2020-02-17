@@ -1,0 +1,687 @@
+::::::::::::::
+DNode
+::::::::::::::
+public class DNode {
+	private Object item;
+	private DNode next;
+	private DNode back;
+
+	public DNode(Object NewItem) {
+		this.item = NewItem;
+		next = this;
+		back = this;
+	}
+
+	public DNode(Object newItem, DNode nextNode, DNode backNode) {
+		this.item = newItem;
+		next = nextNode;
+		back = backNode;
+	}
+
+	public void setItem(Object newItem) {
+		item = newItem;
+	}
+	
+	public void setNext(DNode nextNode) {
+		next = nextNode;
+	}
+
+	public void setBack(DNode backNode) {
+		back = backNode;
+	}
+	
+	public Object getItem() {
+		return item;
+	}
+
+	public DNode getNext() {
+		return next;
+	}
+
+	public DNode getBack() {
+		return back;
+	}
+}
+::::::::::::::
+Driver
+::::::::::::::
+/*
+ * Purpose: Data Structure and Algorithms Lab 4 Problem 1
+ * Status: Complete and thoroughly tested.
+ * Last update: 10/15/18
+ * Submitted:  10/01/18
+ * @author: Kyle Kaminski
+ * @version: 1.1
+ */
+
+import java.util.Scanner;
+
+public class Driver {
+	static ListCDLSBased list = new ListCDLSBased();
+	static Scanner sc = new Scanner(System.in);
+	static boolean endProgram = false;
+
+	public static void main(String[] args) {
+		while (endProgram == false) {
+			System.out.println("");
+			System.out.println("**********");
+			System.out.println("0. Exit Program.");
+			System.out.println("1. Insert item to list.");
+			System.out.println("2. Remove item from list.");
+			System.out.println("3. Get item from list.");
+			System.out.println("4. Clear list.");
+			System.out.println("5. Display size and content of list.");
+			System.out.println("6. Reverse list.");
+			System.out.print("Make a menu selection now: ");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 0: // Exit Program.
+				System.out.println("Exiting Program...Good Bye.");
+				sc.close();
+				endProgram = true;
+				break;
+			case 1: // Insert item to list.
+				add();
+				break;
+			case 2: // Remove item from list.
+				remove();
+				break;
+			case 3: // Get item from list.
+				get();
+				break;
+			case 4: // Clear list.
+				list.removeAll();
+				break;
+			case 5: // Display size and content of list.
+				find();
+				break;
+			case 6: // Reverse list.
+				reverse();
+				break;
+			default:
+				System.out.println("Please try again.");
+			}
+		}
+	}
+
+	public static void add() {
+		System.out.print("Enter item: ");
+		Object item = sc.next();
+		System.out.print("Enter position for item: ");
+		int index1 = sc.nextInt();
+		list.add(index1, item);
+	}
+
+	public static void remove() {
+		System.out.print("Enter position: ");
+		int index2 = sc.nextInt();
+		list.remove(index2);
+	}
+
+	public static void get() {
+		System.out.print("Enter position: ");
+		int index3 = sc.nextInt();
+		System.out.println(list.get(index3) + " was at position " + index3);
+	}
+
+	public static void find() {
+		if (list.size() != 0) {
+			System.out.println("The list of size " + list.size() + " has the following items: ");
+			int p = 0;
+			while (p != list.size()) {
+				System.out.println(list.get(p) + " ");
+				p++;
+			}
+		} else {
+			System.out.println("The list is empty, nothing to display.");
+		}
+	}
+
+	public static void reverse() {
+		if (list.size() == 0) {
+			System.out.println("List is empty, nothing to reverse.");
+		} else if (list.size() == 1) {
+			System.out.println("Cannot reverse a one element list.");
+		} else {
+			ListCDLSBased temp = new ListCDLSBased();
+			for (int i = list.size() - 1; i >= 0; i--) {
+				temp.add(0, list.get(i));
+			}
+			list = temp;
+		}
+	}
+}
+::::::::::::::
+ListCDLSBased
+::::::::::::::
+/*
+* Purpose: Data Structure and Algorithms Lab 4 Problem 1
+* Status: Complete and thoroughly tested.
+* Last update: 10/15/18
+* Submitted:  10/01/18
+* @author: Kyle Kaminski
+* @version: 1.1
+*/
+
+public class ListCDLSBased implements ListInterface {
+	private DNode tail = null;
+	private int numItems = 0;
+
+	public boolean isEmpty() { // Checks if the CDLS is empty
+		if (numItems == 0) { // if the size is 0
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public int size() { // Returns the size of CDLS
+		return numItems;
+	}
+
+	public void add(int i, Object item) throws ListIndexOutOfBoundsException { // Adds an element to the CDLS
+		if (i >= 0 && i < size() + 1) {
+			if (size() == 0) { // If list is empty.
+				DNode Node1 = new DNode(item);
+				tail = Node1;
+				numItems++;
+			} else { // If list has elements.
+				DNode previous = find(i - 1);
+				DNode Node2 = new DNode(item, previous.getNext(), previous);
+				previous.setNext(Node2);
+				Node2.setNext(tail);
+				tail.setBack(Node2);
+				Node2.setBack(previous);
+				numItems++;
+			}
+		} else {
+			throw new ListIndexOutOfBoundsException(
+					"CDLS out of bounds exception occured during the execution of the add method.");
+		}
+	}
+
+	public void remove(int i) throws ListIndexOutOfBoundsException { // Removes an element from the CDLS. Code is very
+																		// similar to the add() method.
+		if (i >= 0 && i < size()) {
+			if (i == 0) {
+				tail = tail.getNext();
+				numItems--;
+			} else {
+				DNode last = find(i - 1);
+				DNode current = last.getNext();
+				last.setNext(current.getNext());
+				last.setBack(current.getBack());
+				numItems--; // The list size is now one less than what it was.
+			}
+		} else {
+			throw new ListIndexOutOfBoundsException(
+					"CDLS out of bounds exception occured during the execution of the remove method.");
+		}
+	}
+
+	public void removeAll() { // Clears the CDLS
+		tail = null;
+		numItems = 0; // Resets the list.
+	}
+
+	public Object get(int i) throws ListIndexOutOfBoundsException { // Gets an item from the CDLS. Also similar to add()
+																	// method.
+		if (i >= 0 && i < size()) {
+			DNode current = find(i);
+			Object data = current.getItem();
+			return data;
+		} else {
+			throw new ListIndexOutOfBoundsException(
+					"CDLS out of bounds exception occured during the execution of the get method.");
+		}
+	}
+
+	private DNode find(int i) { // Finds an item from the CDLS
+		DNode current = tail;
+		DNode last = tail.getBack();
+		int next = 0;
+		int previous = size() - 1;
+		for (next = 0, previous = size() - 1; next < i && previous > i; next++, previous--) {
+			last = last.getBack();
+			current = current.getNext();
+		}
+		if (next == i) {
+			return current;
+		} else {
+			return last;
+		}
+	}
+
+	@Override
+	public String toString() { // Overrides the toString method, lets me print the contents of the array list.
+		String print = "";
+		DNode current = tail;
+		for (int i = 0; i < size(); i++) {
+			print += current.getItem() + toString();
+			current = current.getNext();
+		}
+		return "Size: " + size() + ". Content: " + print;
+	}
+}
+::::::::::::::
+SampleRuns
+::::::::::::::
+*****Driver*****
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list is empty, nothing to display.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+There is nothing in this list to reverse!
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Pikachu
+Enter position to insert item in: 0
+Pikachu inserted at position 0.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 1 has the following item: 
+(0)Pikachu
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Bulbasaur
+Enter position to insert item in: 0
+Bulbasaur inserted at position 0.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 2 has the following items: 
+Pikachu 
+Bulbasaur 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Charizard
+Enter position to insert item in: 2
+Charizard inserted at position 2.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 3 has the following items: 
+Pikachu 
+Bulbasaur 
+Charizard 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Charizard
+Enter position to insert item in: 2
+Charizard inserted at position 2.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+The list has been reversed.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Charizard 
+Bulbasaur 
+Bulbasaur 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+The list has been reversed.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Pikachu 
+Bulbasaur 
+Bulbasaur 
+Charizard 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Mew
+Enter position to insert item in: 1
+Mew inserted at position 1.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Abra
+Enter position to insert item in: 3
+Abra inserted at position 3.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 6 has the following items: 
+Pikachu 
+Abra 
+Pikachu 
+Abra 
+Pikachu 
+Abra 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 2
+Enter position to remove item from: 5
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 2
+Enter position to remove item from: 3
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Pikachu 
+Pikachu 
+Pikachu 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 2
+Enter position to remove item from: 0
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 3 has the following items: 
+Pikachu 
+Pikachu 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 1
+You are now inserting an item into the front of the list.
+Enter item: Kadabra
+Enter position to insert item in: 1
+Kadabra inserted at position 1.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 6
+The list has been reversed.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list of size 4 has the following items: 
+Kadabra 
+Pikachu 
+Kadabra 
+Pikachu 
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 3
+Enter position to get from: 2
+Kadabra was at position 2
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 3
+Enter position to get from: 0
+Kadabra was at position 0
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 3
+Enter position to get from: 3
+Pikachu was at position 3
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 4
+List has been cleared.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 5
+The list is empty, nothing to display.
+
+**********
+0. Exit Program.
+1. Insert item to list.
+2. Remove item from list.
+3. Get item from list.
+4. Clear list.
+5. Display size and content of list.
+6. Reverse list.
+Make a menu selection now: 0
+Exiting Program...Good Bye.
+
+::::::::::::::
+TimeAndSpace
+::::::::::::::
+For a list of n items:
+
+Space Complexity:
+CDLS uses 24 bytes of memory.
+This is because each node has 8 bytes.
+Of those 8 bytes, 4 bytes are for data and 4 are for holding the address.
+
+Time Complexity:
+
+get()
+	Best = 0
+	Worst = 0
+	Average = 0 
+	
+add()
+	Best = 0
+	Worst = n
+	Average = n/2 
+	
+remove()
+	Best = 0
+	Worst = n-1
+	Average = (n-1)/2
+::::::::::::::
+Conclusions
+::::::::::::::
+While working on this lab, I learned how to properly use CDLS ADT implementations.
+I learned how CDLS is similar to Array Lists, but how they have their own properties to make them unique.
+In the future, I will learn how to use CDLS properly to make more efficient code.

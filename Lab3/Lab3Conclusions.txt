@@ -1,0 +1,4 @@
+During the creation of Lab 3, I learned that the application program that I wrote for labs 1 and 2 is extremely flexible and can be added to and changed very easily.
+This lab has taught me what the compareTo method is in the String class.
+This lab has also taught me to use the compareTo method to compare two different strings and see which string holds more value over the other.
+Overall, I will use the compareTo method, as well as the String class, a lot more now since I know what they are capable of.
